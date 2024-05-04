@@ -1,4 +1,38 @@
+/* Navbar.css */
 .navbar{
-    width: 100%;
-  
+    padding: 0px;
 }
+.navbar-brand {
+    /* Optional: Adjust font size or other styles for the navbar brand */
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav {
+    /* Optional: Adjust spacing and alignment of navbar items */
+    margin-left: auto; /* Pushes navbar items to the right */
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding-left: 20px;     /* Adjust horizontal padding for navbar items */
+  }
+  
+  .nav-item > div {
+    margin-left: 10px; /* Add spacing between elements inside .nav-item */
+  }
+
+  @media (max-width: 576px) {
+    .menu-content {
+      display: none; /* Hide menu content by default on small screens */
+    }
+  
+    .navbar-toggler {
+      display: block; /* Show menu icon button on small screens */
+    }
+  
+    /* Show menu content when menu is open on small screens */
+    .menu-content.open {
+      display: block;
+    }
+  }

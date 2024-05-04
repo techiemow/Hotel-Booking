@@ -1,33 +1,92 @@
 import "./Navbar.css";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Grid, InputAdornment, IconButton } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { locations } from "./constants";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  
+  const navigate = useNavigate();
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+    console.log("setIsMenuOpen called with menu open state changed to " + isMenuOpen);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navbar</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Link</a>
-            </li>
-          </ul>
-          <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={top100Films}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="Movie" />}
-    />
-
-        </div>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          style={{
+            width: "100%",
+            padding: "30px",
+          }}
+        >
+          <div className="navbar-brand">BookHaven</div>
+          <Grid item>
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="#" >
+                  Home
+                </a>
+              </li>
+              </Grid>
+          <Grid item>
+          <IconButton
+            className="navbar-toggler"
+            onClick={handleMenuToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Grid>
+        </Grid>
+        {isMenuOpen && (
+         <div className="menu-content">
+         <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <Grid item>
+              <li className="nav-item mb-4">
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={locations}
+                  sx={{ width: 200 }}
+                  onChange={(event) => {
+                    const searchedLocation = event.target.innerText;
+                    searchedLocation?.length && navigate("/" + searchedLocation);
+                  }}
+                  renderInput={(params) => <TextField {...params} label="Locations" />}
+                />
+              </li>
+            </Grid>
+            <Grid item>
+              <li className="nav-item mb-2">
+                <TextField
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{ width: 300 }}
+                  id="demo-helper-text-misaligned-no-helper"
+                  label="Search"
+                  placeholder="Enter the name of Hotel"
+                  fullWidth
+                />
+              </li>
+              </Grid>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -35,12 +94,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
-    { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 }
-]
