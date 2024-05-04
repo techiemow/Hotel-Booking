@@ -1,3 +1,11 @@
+export const apiurl =
+  import.meta.env.VITE_LOCAL_URL === "production"
+    ? "http://localhost:4000`"
+    : `http://localhost:4000`;  
+
+
+
+
 export const locations = [
     { label: "Delhi", id: 54343 },
     { label: "Chennai", id: 8923 },

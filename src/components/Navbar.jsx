@@ -7,6 +7,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { locations } from "./constants";
 import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -31,12 +32,9 @@ const Navbar = () => {
             padding: "30px",
           }}
         >
-          <div className="navbar-brand">BookHaven</div>
-          <Grid item>
+            <Grid item>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#" >
-                  Home
-                </a>
+              <a className="navbar-brand" href="#">BookHaven</a>
               </li>
               </Grid>
           <Grid item>
@@ -67,7 +65,7 @@ const Navbar = () => {
               </li>
             </Grid>
             <Grid item>
-              <li className="nav-item mb-2">
+              <li className="nav-item mb-4">
                 <TextField
                   InputProps={{
                     startAdornment: (
@@ -83,6 +81,16 @@ const Navbar = () => {
                   fullWidth
                 />
               </li>
+              </Grid>
+              <Grid item>
+                <li className="nav-item mb-4">
+                <Button variant="contained">Login</Button>
+                </li>
+              </Grid>
+              <Grid item>
+                <li className="nav-item mb-2">
+                <Button variant="contained">Register</Button>
+                </li>
               </Grid>
             </ul>
           </div>

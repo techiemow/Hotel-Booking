@@ -24,7 +24,7 @@
 
   @media (max-width: 576px) {
     .menu-content {
-      display: none; /* Hide menu content by default on small screens */
+      display: block; /* Hide menu content by default on small screens */
     }
   
     .navbar-toggler {
