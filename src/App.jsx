@@ -9,11 +9,12 @@ function App() {
 
 
     return (
-        <Grid item>
+        <>
             <Navbar/>
 
             <Footer/>
-        </Grid>
+            </>
+    
     );
   };
 

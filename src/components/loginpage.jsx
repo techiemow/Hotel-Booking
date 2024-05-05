@@ -9,7 +9,7 @@ import { Grid, TextField } from "@mui/material";
 
 const Loginpage = () => {
   return (
-    <div>Login page</div>
+    <div></div>
   )
 }
 
