@@ -18,23 +18,24 @@ const Loginpage = ({ openType, setOpenType }) => {
 
   const handleSubmit = async (values) => {
     console.log("Login form submitted:", values);
-    if (openType === "Login") {
+    let Username = values.username
+    let Password = values.password
+   console.log(" Username and Password are required for",`${apiurl}/login/${Username}/${Password}`)
       try {
         const apiResponse = await axios.get(
-          `${apiurl}/login/${values.username}/${values.password}`
+          `${apiurl}/Login/${Username}/${Password}`
         );
         if (apiResponse.data && apiResponse.data !== "Login Failed") {
           localStorage.setItem("login", apiResponse.data);
-          setOpenType("");
           return;
         } else {
-          alert("Login Failed");
+          alert("Login Failed by one step");
         }
       } catch (error) {
         console.error("Login error:", error);
         alert("Login Failed");
       }
-    }
+
   };
 
   return (

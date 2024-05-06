@@ -3,6 +3,7 @@ import './App.css'
 import Footer from './components/Footer'
 import {Grid} from '@mui/material'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BookingPage from './components/BookingPage';
 function App() {
   
   const Layout = () => {
@@ -11,7 +12,7 @@ function App() {
     return (
         <>
             <Navbar/>
-
+            <BookingPage/>
             <Footer/>
             </>
     

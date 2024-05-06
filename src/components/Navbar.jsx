@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
 import { locations } from './constants';
-import "./Navbar.css"
+
 import Loginpage from './loginpage';
 import Registration from './registration';
 
@@ -17,6 +17,7 @@ const Navbar = () => {
 
 
   return (
+   
 <AppBar >
 <nav className="navbar navbar-expand-md bg-body-tertiary">
   <div className="container-fluid">
@@ -83,6 +84,7 @@ const Navbar = () => {
 
         </nav>
         </AppBar> 
+      
   );
 };
 

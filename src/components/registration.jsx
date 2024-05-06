@@ -38,7 +38,7 @@ const Registration = ({ openType, setOpenType }) => {
       });
       console.log("API Response:", apiResponse.data);
   
-      if (apiResponse.data._id) {
+      if (apiResponse?.data?._id) {
         // Reset form state and close modal on successful registration
         setFormState({
           username: "",
@@ -47,13 +47,14 @@ const Registration = ({ openType, setOpenType }) => {
           password: "",
           confirmPassword: "", // Assuming you also want to reset confirmPassword
         });
-        setOpenType(""); // Close modal
+         // Close modal
       }
     } catch (error) {
       console.error("Registration error:", error);
     } finally {
       setSubmitting(false); // Reset submit button state regardless of success or failure
     }
+    
   };
   
   return (

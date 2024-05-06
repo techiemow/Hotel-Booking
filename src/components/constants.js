@@ -16,20 +16,22 @@ export const locations = [
 export const hotels = {
     "Chennai": [
       {
-        "name": "Luxury Inn Chennai",
-        "ratings": 4.5,
-        "price_per_night_INR": 7500,
-        "amenities": ["Free WiFi", "Swimming Pool", "Spa", "Restaurant"],
-        "location": "Marina Beach, Chennai",
-        "image": "https://example.com/images/luxury_inn_chennai.jpg"
-      },
-      {
-        "name": "City View Hotel",
-        "ratings": 3.8,
-        "price_per_night_INR": 4500,
-        "amenities": ["Breakfast Included", "Gym", "Parking"],
-        "location": "Mount Road, Chennai",
-        "image": "https://example.com/images/city_view_hotel.jpg"
+        
+          "name": "The Park Chennai",
+          "ratings": 4.2,
+          "price_per_night_INR": 6000,
+          "amenities": [
+            "Luxurious Rooms",
+            "Multiple Dining Options",
+            "Pool",
+            "Spa",
+            "Fitness Center",
+            "Free WiFi"
+          ],
+          "location": "Anna Salai, Chennai",
+          "description": "The Park Chennai is a stylish and contemporary hotel located in the heart of Chennai's business district. The hotel offers luxurious accommodations with modern amenities and facilities. Guests can enjoy a range of dining options, including fine cuisine and innovative cocktails. The hotel features a rooftop pool, spa, fitness center, and complimentary WiFi access.",
+          "image": "https://img.directhotels.com/in/chennai/the-park-chennai/1.jpg"
+        
       },
       {
         "name": "Taj Coromandel",
@@ -37,7 +39,7 @@ export const hotels = {
         "price_per_night_INR": 12000,
         "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center"],
         "location": "Nungambakkam, Chennai",
-        "image": "https://example.com/images/taj_coromandel_chennai.jpg"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRghVBa4kg2YKQRw2OzyH7SZ3hoXMUdWynD-quF2LLPaQ&s"
       },
       {
         "name": "ITC Grand Chola",
@@ -45,7 +47,7 @@ export const hotels = {
         "price_per_night_INR": 10500,
         "amenities": ["Royal Suites", "Multiple Restaurants", "Pool", "Banquet Halls"],
         "location": "Guindy, Chennai",
-        "image": "https://example.com/images/itc_grand_chola_chennai.jpg"
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/01/24/9e/exterior.jpg?w=1200&h=-1&s=1"
       },
       {
         "name": "Radisson Blu Hotel Chennai City Centre",
@@ -53,7 +55,7 @@ export const hotels = {
         "price_per_night_INR": 6500,
         "amenities": ["Free WiFi", "Restaurant", "Bar", "Fitness Center"],
         "location": "Egmore, Chennai",
-        "image": "https://example.com/images/radisson_blu_chennai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/248393998.jpg?k=e261f2e2f26e5614ff6865d29eee41059257cc49a7b1dc7b907946a71d455b3a&o=&hp=1"
       },
       {
         "name": "Hyatt Regency Chennai",
@@ -61,7 +63,7 @@ export const hotels = {
         "price_per_night_INR": 9500,
         "amenities": ["Spacious Rooms", "Outdoor Pool", "Fitness Center", "Spa"],
         "location": "Anna Salai, Chennai",
-        "image": "https://example.com/images/hyatt_regency_chennai.jpg"
+        "image": "https://ik.imgkit.net/3vlqs5axxjf/external/http://images.ntmllc.com/v4/hotel/T57/T57772/T57772_EXT_Z9E8C1.JPG?tr=w-360%2Ch-379%2Cfo-auto"
       },
       {
         "name": "The Leela Palace Chennai",
@@ -69,7 +71,7 @@ export const hotels = {
         "price_per_night_INR": 14500,
         "amenities": ["Luxury Suites", "Fine Dining", "Beach Access", "Spa"],
         "location": "MRC Nagar, Chennai",
-        "image": "https://example.com/images/leela_palace_chennai.jpg"
+        "image": "https://www.theleela.com/prod/content/assets/styles/tl_500_621_webp/public/2024-01/The-Leela-Palace-Chennai-5-star-hotel.jpg.webp?VersionId=O4RROZrREuT.8zTUVjO21R0xej4Jmhk1&itok=FXkNyHR3"
       },
       {
         "name": "The Raintree Hotel, Anna Salai",
@@ -77,7 +79,7 @@ export const hotels = {
         "price_per_night_INR": 8000,
         "amenities": ["Luxurious Rooms", "Rooftop Restaurant", "Fitness Center", "Spa"],
         "location": "Anna Salai, Chennai",
-        "image": "https://example.com/images/theraintree_annasalai_chennai.jpg"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT86v77dxUfNddbxoBRtkvShXkDGinfOeOMB40xq77pcw&s"
       },
       {
         "name": "Courtyard by Marriott Chennai",
@@ -85,7 +87,7 @@ export const hotels = {
         "price_per_night_INR": 7000,
         "amenities": ["Modern Rooms", "All-Day Dining", "Outdoor Pool", "Gym"],
         "location": "Teynampet, Chennai",
-        "image": "https://example.com/images/courtyard_marriott_chennai.jpg"
+        "image": "https://magarticles.magzter.com/articles/3334/279618/5afb07b487a20/Courtyard-By-Marriott-Makes-A-Comeback-In-Chennai.jpg"
       },
       {
         "name": "Hilton Chennai",
@@ -93,7 +95,7 @@ export const hotels = {
         "price_per_night_INR": 9000,
         "amenities": ["Spacious Suites", "Fine Dining", "Swimming Pool", "Fitness Center"],
         "location": "Guindy, Chennai",
-        "image": "https://example.com/images/hilton_chennai.jpg"
+        "image": "https://www.hilton.com/im/en/MAAHIHI/4810769/hilton-chennai-exterior-updated-2015-copy.jpg?impolicy=crop&cw=2439&ch=1365&gravity=NorthWest&xposition=0&yposition=841&rw=768&rh=430"
       },
       {
         "name": "Feathers - A Radha Hotel",
@@ -101,7 +103,7 @@ export const hotels = {
         "price_per_night_INR": 6500,
         "amenities": ["Elegant Rooms", "Multi-Cuisine Restaurant", "Spa", "Banquet Halls"],
         "location": "Porur, Chennai",
-        "image": "https://example.com/images/feathers_radha_hotel_chennai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max500/90449362.jpg?k=f096410b8a0e379611786ea35da3f708280bfdacbd982df774689d32519c3363&o=&hp=1"
       },
       {
         "name": "Park Hyatt Chennai",
@@ -109,7 +111,7 @@ export const hotels = {
         "price_per_night_INR": 11000,
         "amenities": ["Luxury Accommodations", "Award-Winning Dining", "Spa", "Pool"],
         "location": "Velachery, Chennai",
-        "image": "https://example.com/images/park_hyatt_chennai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/529051800.jpg?k=d6363272319772e10fb8093bd3b6383faf49c6bf585f3059e105b268be51d509&o=&hp=1"
       }
    
     ],
