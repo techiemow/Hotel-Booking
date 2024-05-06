@@ -1,13 +1,19 @@
 import { Grid, Typography,Breadcrumbs, Autocomplete,
     TextField } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from "react-router-dom";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { sortData } from './constants';
+import Filter from './Filter';
+import HotelCard from './HotelCard';
 
 const BookingPage = () => {
     const { location = "Delhi" } = useParams();
+    
+    const [filteredTags, setFilteredTags] = useState([]);
+    const [selectedSort, setSelectedSort] = useState("Ratings");
 
-
+    console.log(selectedSort);
     const breadcrumbs = [
         <Grid underline="hover" key="1" color="inherit" href="/" onClick={() => {}}>
           Home
@@ -35,16 +41,17 @@ const BookingPage = () => {
     <Grid
     container
     style={{
-      margin: "auto",
-      width: 1475,
+      marginTop:"auto",
+      width: 1600
     }}
-    spacing={4}
-  >
-    {/* <Grid item lg={2}>
-      <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
-    </Grid> */}
+    spacing={12}
+    columnSpacing={1}
+     >
+    <Grid item lg={2} md={2} sm={2} spacing={20}>
+        <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
+      </Grid>
 
-    <Grid item lg={9} md={6} sm={4}>
+    <Grid item lg={8} md={6} sm={4} >
       <Grid item>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
@@ -61,33 +68,38 @@ const BookingPage = () => {
         >
           <Grid item>
             <Typography variant="h3" fontSize={30}>
-              Best Restaurants Near Me in {location}
+              Best Hotels Near Me in {location}
             </Typography>
           </Grid>
 
           <Grid item>
-            <Grid container alignItems={"center"} spacing={2}>
-              <Grid item>
-                {/* <Typography variant="h5" fontSize={20}>
-                  Sort
-                </Typography> */}
-              </Grid>
+         
 
               <Grid item>
                 <Autocomplete
                   disablePortal
                   id="combo-box-demo"
-                //   options={sortData}
+                  options={sortData}
                   sx={{ width: 150 }}
+                  onChange={(event) =>{
+                    setSelectedSort(event.target.innerHTML);
+                  }}
                 
                   renderInput={(params) => (
                     <TextField {...params} label="Sort" />
                   )}
                 />
               </Grid>
-            </Grid>
+            
           </Grid>
         </Grid>
+        </Grid>
+        <Grid item paddingTop={4}>
+          <HotelCard
+            location={location}
+            filteredTags={filteredTags}
+            selectedSort={selectedSort}
+          />
         </Grid>
         </Grid>
         </Grid>

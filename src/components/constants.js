@@ -3,7 +3,11 @@ export const apiurl =
     ? "http://localhost:4000`"
     : `http://localhost:4000`;  
 
-
+    export const sortData = [
+      { label: "Ratings", key: 1994 },
+      { label: "Price High to Low", key: 1972 },
+      { label: "Price Low to High", key: 1974 },
+    ];
 
 
 export const locations = [
@@ -11,6 +15,22 @@ export const locations = [
     { label: "Chennai", id: 8923 },
     { label: "Mumbai", id: 3456 },
   ];
+
+  export const amenities = [
+    "Luxurious Rooms",
+    "Multiple Dining Options",
+    "Pool",
+    "Spa",
+    "Fitness Center",
+    "Free WiFi", 
+    "Free Parking",
+    "Air Conditioning", 
+    "Breakfast", 
+    "Gym",
+    "Indoor Games",
+    "Outdoor Games",
+    "Swimming Pool"
+  ]
 
   
 export const hotels = {
@@ -30,7 +50,7 @@ export const hotels = {
           ],
           "location": "Anna Salai, Chennai",
           "description": "The Park Chennai is a stylish and contemporary hotel located in the heart of Chennai's business district. The hotel offers luxurious accommodations with modern amenities and facilities. Guests can enjoy a range of dining options, including fine cuisine and innovative cocktails. The hotel features a rooftop pool, spa, fitness center, and complimentary WiFi access.",
-          "image": "https://img.directhotels.com/in/chennai/the-park-chennai/1.jpg"
+          "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269799885.jpg?k=71dd2753c02fecbbb87860bef0d9a63dc5f56084a93952d0ec70d3272e7e908d&o=&hp=1"
         
       },
       {
@@ -214,6 +234,7 @@ export const hotels = {
       }
       // More hotels in Mumbai...
     ],
+    
     "Delhi": [
       {
         "name": "Deluxe Heights Delhi",
