@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, ModalDialog } from "@mui/joy";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -16,23 +16,46 @@ const Registration = ({ openType, setOpenType }) => {
       .required("Confirm Password is required"),
   });
 
+  // Initialize form state using useState
+  const [formState, setFormState] = useState({
+    username: "",
+    phonenumber: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       console.log("Registration form submitted:", values);
-      const apiResponse = await axios.post(`${apiurl}/registration`, values);
-      console.log(apiResponse.data, "apiResponse.");
-
+  
+      // Make API request with form values
+      const apiResponse = await axios.post(`${apiurl}/registration`, {
+        username: values.username,
+        phoneNumber: values.phonenumber,
+        emailaddress: values.email,
+        password: values.password,
+      });
+      console.log("API Response:", apiResponse.data);
+  
       if (apiResponse.data._id) {
-        setOpenType("");
+        // Reset form state and close modal on successful registration
+        setFormState({
+          username: "",
+          phonenumber: "",
+          email: "",
+          password: "",
+          confirmPassword: "", // Assuming you also want to reset confirmPassword
+        });
+        setOpenType(""); // Close modal
       }
     } catch (error) {
       console.error("Registration error:", error);
-      
     } finally {
-      setSubmitting(false);
+      setSubmitting(false); // Reset submit button state regardless of success or failure
     }
   };
-
+  
   return (
     <div>
       <Modal open={openType === "Register"} onClose={() => setOpenType("")}>
@@ -52,53 +75,27 @@ const Registration = ({ openType, setOpenType }) => {
           })}
         >
           <Formik
-            initialValues={{
-              username: "",
-              password: "",
-              confirmPassword: "",
-              phonenumber: "",
-              email: "",
-            }}
+            initialValues={formState} // Use formState as initialValues
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting }) => (
+            
               <Form>
                 <div>
-                  <Field
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    className="form-control mb-3"
-                  />
-                  <ErrorMessage name="username" component="div" className="error  text-danger" />
+                  <Field type="text" name="username" placeholder="Username" className="form-control mb-3" />
+                  <ErrorMessage name="username" component="div" className="error text-danger" />
                 </div>
                 <div>
-                  <Field
-                    type="text"
-                    name="phonenumber"
-                    placeholder="Phone Number"
-                    className="form-control mb-3"
-                  />
-                  <ErrorMessage name="phonenumber" component="div" className="error  text-danger" />
+                  <Field type="text" name="phonenumber" placeholder="Phone Number" className="form-control mb-3" />
+                  <ErrorMessage name="phonenumber" component="div" className="error text-danger" />
                 </div>
                 <div>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    className="form-control mb-3"
-                  /> 
-                  <ErrorMessage name="email" component="div" className="error  text-danger" />
+                  <Field type="email" name="email" placeholder="Email Address" className="form-control mb-3" />
+                  <ErrorMessage name="email" component="div" className="error text-danger" />
                 </div>
                 <div>
-                  <Field
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    className="form-control mb-3"
-                  />
-                  <ErrorMessage name="password" component="div" className="error  text-danger" />
+                  <Field type="password" name="password" placeholder="Password" className="form-control mb-3" />
+                  <ErrorMessage name="password" component="div" className="error text-danger" />
                 </div>
                 <div>
                   <Field
@@ -109,11 +106,11 @@ const Registration = ({ openType, setOpenType }) => {
                   />
                   <ErrorMessage name="confirmPassword" component="div" className="error text-danger" />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                <button type="submit" className="btn btn-primary" >
                   Register
                 </button>
               </Form>
-            )}
+            
           </Formik>
         </ModalDialog>
       </Modal>
