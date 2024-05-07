@@ -6,11 +6,15 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { sortData } from './constants';
 import Filter from './Filter';
 import HotelCard from './HotelCard';
+import Compare from './Compare';
 
 
 
 const BookingPage = () => {
     const { location = "Delhi" } = useParams();
+
+    const [compare , setcompare] = useState(false);
+    console.log(compare);
     
     const [filteredTags, setFilteredTags] = useState([]);
     const [selectedSort, setSelectedSort] = useState("Ratings");
@@ -74,7 +78,10 @@ const BookingPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <button className='btn btn-primary'>Compare</button>
+            <button className='btn btn-primary' onClick={()=>{
+              setcompare(true);
+            }}>Compare</button>
+   
           </Grid>
 
           <Grid item>
@@ -85,7 +92,7 @@ const BookingPage = () => {
                   disablePortal
                   id="combo-box-demo"
                   options={sortData}
-                  sx={{ width: 150 }}
+                  sx={{ width: 215 }}
                   onChange={(event) =>{
                     setSelectedSort(event.target.innerHTML);
                   }}

@@ -135,14 +135,14 @@ export const hotels = {
       }
    
     ],
-    "Mumbai": [
+    "mumbai": [
       {
         "name": "Marine Plaza Mumbai",
         "ratings": 4.2,
         "price_per_night_INR": 8500,
         "amenities": ["Sea View Rooms", "Rooftop Restaurant", "Bar"],
         "location": "Marine Drive, Mumbai",
-        "image": "https://example.com/images/marine_plaza_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/59516178.jpg?k=493d3d6140fd42c09f66b444fe53139e50ba7d628918bc53fecb5b7f700928c8&o=&hp=1"
       },
       {
         "name": "Grand Hotel Mumbai",
@@ -150,7 +150,7 @@ export const hotels = {
         "price_per_night_INR": 6500,
         "amenities": ["Free WiFi", "Spa", "Fitness Center"],
         "location": "Colaba, Mumbai",
-        "image": "https://example.com/images/grand_hotel_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/309179823.jpg?k=53b55d5d5014e77e4629c97d3232f10512c5cdd8ec11bac91946ca4caac3dd19&o=&hp=1"
       },
       {
         "name": "The Oberoi Mumbai",
@@ -158,7 +158,7 @@ export const hotels = {
         "price_per_night_INR": 18000,
         "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center"],
         "location": "Nariman Point, Mumbai",
-        "image": "https://example.com/images/oberoi_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/28759044.jpg?k=4a3e476214895d86a0e71808d9eb5b85acaebe0cbff06bbd2ecdbb3054d98600&o=&hp=1"
       },
       {
         "name": "JW Marriott Mumbai Juhu",
@@ -166,7 +166,7 @@ export const hotels = {
         "price_per_night_INR": 14000,
         "amenities": ["Beachfront Location", "Multiple Restaurants", "Pool", "Gym"],
         "location": "Juhu Beach, Mumbai",
-        "image": "https://example.com/images/jw_marriott_mumbai_juhu.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/464597788.jpg?k=419098f724e015e920c04382b2a5bc1b95b175e29584004007969abba1adc745&o=&hp=1"
       },
       {
         "name": "The Taj Mahal Palace",
@@ -174,7 +174,7 @@ export const hotels = {
         "price_per_night_INR": 20000,
         "amenities": ["Historic Luxury", "Iconic Architecture", "Fine Dining", "Spa"],
         "location": "Colaba, Mumbai",
-        "image": "https://example.com/images/taj_mahal_palace_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/103705059.jpg?k=9e078265b31ad1815a573da8ed2a665f863e3925e1efd730df703421868a2ada&o=&hp=1"
       },
       {
         "name": "Trident Nariman Point",
@@ -182,7 +182,7 @@ export const hotels = {
         "price_per_night_INR": 12000,
         "amenities": ["Seaside Views", "Multiple Dining Options", "Pool", "Fitness Center"],
         "location": "Nariman Point, Mumbai",
-        "image": "https://example.com/images/trident_nariman_point_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/32810813.jpg?k=7b5f861c6aad4e51ef13e55c8b68ac945cebdf77aeca84d9c2798bb9af46d24d&o=&hp=1"
       },
       {
         "name": "ITC Maratha Mumbai",
@@ -190,7 +190,7 @@ export const hotels = {
         "price_per_night_INR": 10000,
         "amenities": ["Luxurious Rooms", "Specialty Restaurants", "Spa", "Fitness Center"],
         "location": "Sahar, Mumbai",
-        "image": "https://example.com/images/itc_maratha_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/478603428.jpg?k=21aeb0be3cbab94368fa0c47cf297f9784cf0d3af87b608ef929ef2428b2377b&o=&hp=1"
       },
       {
         "name": "Grand Hyatt Mumbai",
@@ -198,7 +198,7 @@ export const hotels = {
         "price_per_night_INR": 13000,
         "amenities": ["Spacious Rooms", "Multiple Restaurants", "Pool", "Fitness Center"],
         "location": "Santacruz, Mumbai",
-        "image": "https://example.com/images/grand_hyatt_mumbai.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/466996054.jpg?k=de7113f308f41c7e89b80e7ff2f3663e93a2278e8c396b2e90bffe3fc9294900&o=&hp=1"
       },
       {
         "name": "The St. Regis Mumbai",
@@ -206,7 +206,7 @@ export const hotels = {
         "price_per_night_INR": 16000,
         "amenities": ["Luxury Suites", "Fine Dining", "Rooftop Pool", "Spa"],
         "location": "Lower Parel, Mumbai",
-        "image": "https://example.com/images/st_regis_mumbai.jpg"
+        "image": "https://cache.marriott.com/content/dam/marriott-renditions/BOMXR/bomxr-exterior-1522-hor-feat.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*"
       },
       {
         "name": "Sofitel Mumbai BKC",
@@ -214,7 +214,7 @@ export const hotels = {
         "price_per_night_INR": 11000,
         "amenities": ["Contemporary Rooms", "French Cuisine", "Pool", "Spa"],
         "location": "Bandra Kurla Complex, Mumbai",
-        "image": "https://example.com/images/sofitel_mumbai_bkc.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/531963158.jpg?k=b5116c555a2ed82053378f13df8835482ea48211f5753c16d1e2cefab39fe194&o=&hp=1"
       },
       {
         "name": "Novotel Mumbai Juhu Beach",
@@ -222,7 +222,7 @@ export const hotels = {
         "price_per_night_INR": 9500,
         "amenities": ["Beachfront Location", "All-Day Dining", "Pool", "Fitness Center"],
         "location": "Juhu Beach, Mumbai",
-        "image": "https://example.com/images/novotel_mumbai_juhu.jpg"
+        "image": "https://www.ahstatic.com/photos/6926_ho_00_p_1024x768.jpg"
       },
       {
         "name": "The Leela Mumbai",
@@ -230,35 +230,55 @@ export const hotels = {
         "price_per_night_INR": 14000,
         "amenities": ["Luxury Accommodations", "Award-Winning Dining", "Spa", "Pool"],
         "location": "Andheri East, Mumbai",
-        "image": "https://example.com/images/leela_mumbai.jpg"
+        "image": "https://promos.makemytrip.com/Hotels_product/Luxe/Hero/The%20Leela%20Mumbai%20201007121229563872.webp"
       }
       // More hotels in Mumbai...
     ],
     
-    "Delhi": [
+    "delhi": [
       {
-        "name": "Deluxe Heights Delhi",
-        "ratings": 4.3,
-        "price_per_night_INR": 7800,
-        "amenities": ["Airport Shuttle", "Conference Rooms", "Restaurant"],
-        "location": "Connaught Place, Delhi",
-        "image": "https://example.com/images/deluxe_heights_delhi.jpg"
+        "name": "Sheraton New Delhi Hotel",
+        "ratings": 4.5,
+        "price_per_night_INR": 10000,
+        "amenities": [
+          "Luxurious Rooms",
+          "Fine Dining Restaurants",
+          "Outdoor Pool",
+          "Spa",
+          "Fitness Center",
+          "Business Center",
+          "Free WiFi"
+        ],
+        "location": "Saket, New Delhi",
+        "description": "Sheraton New Delhi Hotel offers elegant and modern accommodations with luxurious amenities. Guests can enjoy fine dining at multiple restaurants, relax by the outdoor pool, rejuvenate at the spa, and stay active at the fitness center. The hotel also provides a business center and complimentary WiFi access.",
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/465561227.jpg?k=687e02385e03d55e5f7b3f94f4494d9e730429fcd66f3d42c8b4764bd4ac6a3f&o=&hp=1"
       },
       {
-        "name": "Royal Retreat Delhi",
+        "name": "Le Meridien New Delhi",
         "ratings": 4.6,
-        "price_per_night_INR": 9500,
-        "amenities": ["Swimming Pool", "Luxury Spa", "Bar & Lounge"],
-        "location": "Chanakyapuri, Delhi",
-        "image": "https://example.com/images/royal_retreat_delhi.jpg"
+        "price_per_night_INR": 12000,
+        "amenities": [
+          "Luxurious Rooms",
+          "Fine Dining Restaurants",
+          "Rooftop Bar",
+          "Outdoor Pool",
+          "Spa",
+          "Fitness Center",
+          "Business Center",
+          "Free WiFi"
+        ],
+        "location": "Janpath, New Delhi",
+        "description": "Le Meridien New Delhi offers sophisticated and stylish accommodations with a range of luxurious amenities. Guests can indulge in fine dining experiences, unwind at the rooftop bar, relax by the outdoor pool, rejuvenate at the spa, and stay active at the fitness center. The hotel also features a business center and complimentary WiFi access.",
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/469178847.jpg?k=8fab2f779723532d5d04df6a2c5674e08768bbc47a33012d35a17ce2e5b1b5a0&o=&hp=1"
       },
+      
       {
         "name": "The Leela Palace New Delhi",
         "ratings": 4.9,
         "price_per_night_INR": 25000,
         "amenities": ["Luxury Suites", "Fine Dining", "Spa", "Outdoor Pool"],
         "location": "Chanakyapuri, New Delhi",
-        "image": "https://example.com/images/leela_palace_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5648061.jpg?k=4629f919fb92436c3e19b71734d208d8e58201df7b29773f90089639f367db6d&o=&hp=1"
       },
       {
         "name": "Taj Palace, New Delhi",
@@ -266,7 +286,7 @@ export const hotels = {
         "price_per_night_INR": 18000,
         "amenities": ["Grand Rooms", "Multiple Restaurants", "Pool", "Fitness Center"],
         "location": "Sardar Patel Marg, New Delhi",
-        "image": "https://example.com/images/taj_palace_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/336041746.jpg?k=81ca9e45244b4f17cb199c4ac73d2094446ebd17020c5c1425a44a23e860b562&o=&hp=1"
       },
       {
         "name": "ITC Maurya, New Delhi",
@@ -274,7 +294,7 @@ export const hotels = {
         "price_per_night_INR": 15000,
         "amenities": ["Luxurious Accommodations", "Specialty Dining", "Spa", "Fitness Center"],
         "location": "Diplomatic Enclave, New Delhi",
-        "image": "https://example.com/images/itc_maurya_delhi.jpg"
+        "image": "https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcmaurya-new-delhi/images/overview-landing-page/headmast/desktop/exterior-night.png"
       },
       {
         "name": "The Oberoi New Delhi",
@@ -282,7 +302,7 @@ export const hotels = {
         "price_per_night_INR": 22000,
         "amenities": ["Premium Rooms", "Award-Winning Restaurants", "Spa", "Fitness Center"],
         "location": "Dr. Zakir Hussain Marg, New Delhi",
-        "image": "https://example.com/images/oberoi_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44522456.jpg?k=9947bae2627f2fc1ec561c4284d877d0cddcad32a7e4b3716a84a115b29ee8ff&o=&hp=1"
       },
       {
         "name": "Hyatt Regency Delhi",
@@ -290,7 +310,7 @@ export const hotels = {
         "price_per_night_INR": 12000,
         "amenities": ["Spacious Rooms", "Multiple Dining Options", "Pool", "Fitness Center"],
         "location": "Bhikaji Cama Place, New Delhi",
-        "image": "https://example.com/images/hyatt_regency_delhi.jpg"
+        "image": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/01/23/0953/Hyatt-Regency-Delhi-P312-Facade.jpg/Hyatt-Regency-Delhi-P312-Facade.16x9.jpg"
       },
       {
         "name": "JW Marriott Hotel New Delhi Aerocity",
@@ -298,23 +318,34 @@ export const hotels = {
         "price_per_night_INR": 14000,
         "amenities": ["Modern Rooms", "Multiple Dining Options", "Pool", "Fitness Center"],
         "location": "Aerocity, New Delhi",
-        "image": "https://example.com/images/jw_marriott_delhi.jpg"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr2pMCRVvLFS18G4PaZXDvvoq7_roUqt1oUPqY39Rh2A&s"
       },
       {
-        "name": "Andaz Delhi - A Concept By Hyatt",
-        "ratings": 4.5,
-        "price_per_night_INR": 16000,
-        "amenities": ["Stylish Rooms", "Innovative Dining", "Rooftop Pool", "Spa"],
-        "location": "Aerocity, New Delhi",
-        "image": "https://example.com/images/andaz_delhi.jpg"
+        "name": "Shangri-La's - Eros Hotel, New Delhi",
+        "ratings": 4.7,
+        "price_per_night_INR": 14000,
+        "amenities": [
+          "Luxurious Rooms and Suites",
+          "Multiple Fine Dining Restaurants",
+          "Rooftop Bar and Lounge",
+          "Outdoor Swimming Pool",
+          "Spa and Wellness Center",
+          "Fitness Center",
+          "Business Facilities",
+          "Free WiFi"
+        ],
+        "location": "Connaught Place, New Delhi",
+        "description": "Shangri-La's - Eros Hotel, New Delhi offers luxurious accommodations and world-class amenities. Guests can enjoy exquisite dining experiences, relax at the rooftop bar with panoramic views, unwind by the outdoor swimming pool, rejuvenate at the spa, and stay fit at the fitness center. The hotel also provides excellent business facilities and complimentary WiFi access.",
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295686542.jpg?k=88737ca54ca3d4c7da9aa31a9bf881c4878f96fa8b392bd3fc65dfa637679ff5&o=&hp=1"
       },
+      
       {
         "name": "Lodhi Hotel",
         "ratings": 4.7,
         "price_per_night_INR": 20000,
         "amenities": ["Luxury Suites", "Fine Dining", "Spa", "Outdoor Pool"],
         "location": "Lodhi Road, New Delhi",
-        "image": "https://example.com/images/lodhi_hotel_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269476314.jpg?k=947be45d7c5867eb4513cdb7d78950694ec98a16330308ff513ef95896fd4602&o=&hp=1"
       },
       {
         "name": "The Imperial New Delhi",
@@ -322,7 +353,7 @@ export const hotels = {
         "price_per_night_INR": 25000,
         "amenities": ["Heritage Suites", "Award-Winning Restaurants", "Spa", "Swimming Pool"],
         "location": "Connaught Place, New Delhi",
-        "image": "https://example.com/images/imperial_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/64759184.jpg?k=07d74a7d896acf9ec2a97ad22b5e98dc7f3fe1a5242bf43ca2488a6606f72ef9&o=&hp=1"
       },
       {
         "name": "Roseate House New Delhi",
@@ -330,7 +361,7 @@ export const hotels = {
         "price_per_night_INR": 12000,
         "amenities": ["Contemporary Rooms", "Global Cuisine", "Outdoor Pool", "Fitness Center"],
         "location": "Aerocity, New Delhi",
-        "image": "https://example.com/images/roseate_house_delhi.jpg"
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/106566927.jpg?k=1034d8fc55ec43d305e906e21b06ac5c63cfb4e7869c4fb09a11f754101e47b2&o=&hp=1"
       }
       // More hotels in Delhi...
     ]

@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 
 const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
   const urlLocation = location ? location.toLowerCase() : "chennai";
-  const hotelData = hotels[urlLocation] || []; // Ensure hotelData is an array
+  const hotelData = hotels[urlLocation] || []; 
 
   console.log("Loading hotel data...", hotelData); 
 
@@ -46,13 +46,17 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
                 <Typography gutterBottom variant="h5" component="div">
                   {name}
                 </Typography>
+                <br />
                 <Typography variant="body2" color="text.secondary">
                  <b> {location}</b>
                 </Typography>
+                <br />
                 <Typography variant="body2" color="text.secondary">
                   <b>Amenities: {amenities.join(", ")}</b>
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <br />
+              
+                <Typography variant="body2" color="text.random">
                  <b> Price per night: {price_per_night_INR} INR</b> 
                 </Typography>
               
