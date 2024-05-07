@@ -34,7 +34,7 @@ export const locations = [
 
   
 export const hotels = {
-    "Chennai": [
+    "chennai": [
       {
         
           "name": "The Park Chennai",

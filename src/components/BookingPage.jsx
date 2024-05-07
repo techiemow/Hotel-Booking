@@ -7,6 +7,8 @@ import { sortData } from './constants';
 import Filter from './Filter';
 import HotelCard from './HotelCard';
 
+
+
 const BookingPage = () => {
     const { location = "Delhi" } = useParams();
     
@@ -47,7 +49,7 @@ const BookingPage = () => {
     spacing={12}
     columnSpacing={1}
      >
-    <Grid item lg={2} md={2} sm={2} spacing={20}>
+    <Grid item lg={2} md={2} sm={2} >
         <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
       </Grid>
 
@@ -70,6 +72,9 @@ const BookingPage = () => {
             <Typography variant="h3" fontSize={30}>
               Best Hotels Near Me in {location}
             </Typography>
+          </Grid>
+          <Grid item>
+            <button className='btn btn-primary'>Compare</button>
           </Grid>
 
           <Grid item>
