@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TextField, InputAdornment, Button, AppBar } from '@mui/material';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -8,6 +8,7 @@ import { locations } from './constants';
 
 import Loginpage from './loginpage';
 import Registration from './registration';
+import { Appcontext } from './Context';
 
 
 const Navbar = () => {
@@ -17,7 +18,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem("login") || ""; 
 
-  
+  const { setSearchedHotel,SearchHotel } = useContext(Appcontext);
+
   const handleLogout = () => {
     localStorage.setItem("login", "");
     window.location.reload();
@@ -25,6 +27,11 @@ const Navbar = () => {
 
   const handleMyBookings = () => {
     setShowMyBookingModal(true);
+  };
+
+  const handleNameChange = (event) => {
+    setSearchedHotel(event.target.value);
+    console.log(SearchHotel);
   };
 
   return (
@@ -61,6 +68,7 @@ const Navbar = () => {
                       ),
                     }}
                     sx={{ width: 300 }}
+                    onChange={handleNameChange}
                     label="Search"
                     placeholder="Enter the name of Hotel"
                     fullWidth

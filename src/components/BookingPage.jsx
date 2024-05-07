@@ -19,6 +19,8 @@ const BookingPage = () => {
     const [filteredTags, setFilteredTags] = useState([]);
     const [selectedSort, setSelectedSort] = useState("Ratings");
 
+    console.log(filteredTags)
+
     console.log(selectedSort);
     const breadcrumbs = [
         <Grid underline="hover" key="1" color="inherit" href="/" onClick={() => {}}>

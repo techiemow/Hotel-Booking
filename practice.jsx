@@ -14,14 +14,68 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 
+  
+  
+const defaultState = {
+  
+  selectedInDate: "",
+  selectedTime: "",
+  selectedOutDate: "",
+  selectedRooms: 0,
+
+};
+
+
+
+
 const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
   const [count,setCount] = useState(0)
 
+   
+  const [BookingDetails , setBookingDetails] = useState(defaultState)
+
+  const handleINDate = async (value) => {
+    const day = new Date(value).getDate();
+    const year = new Date(value).getFullYear();
+    const month = new Date(value).getMonth() + 1;
+
+    const bookingData = `${day}-${month}-${year}`;
+
+    setBookingDetails({
+      ...BookingDetails,
+      selectedInDate: bookingData,
+    });
+  }
+  
+  const handleOUTDate = async (value) => {
+    const day = new Date(value).getDate();
+    const year = new Date(value).getFullYear();
+    const month = new Date(value).getMonth() + 1;
+
+    const bookingData = `${day}-${month}-${year}`;
+   console.log(bookingData);
+    setBookingDetails({
+      ...BookingDetails,
+      selectedOutDate: bookingData,
+    });
+  }
+    
+ const handleCheckINTime = async (value) => {
+  setBookingDetails({
+   ...BookingDetails,
+    selectedTime: value,
+  });
+}
 
 
 
+
+
+
+  
   const handleClose = () => {
     setselectedHotelId(""); // Call setselectedHotelId to close the modal by setting selectedHotelId to ""
+    setBookingDetails(defaultState); // 
   };
 
   return (
@@ -81,7 +135,7 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
               <DemoItem components={["DatePicker"]}>
                   <DatePicker
                     views={["year", "month", "day"]}
-                   
+                   onChange={handleINDate}
                     label="Select Date"
                     disablePast
                   />
@@ -90,6 +144,26 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
                 
                 </LocalizationProvider>
                 </Grid>
+                
+                <Grid
+              item
+              style={{
+                width: "70%",
+              }}
+            >
+                 <Typography
+                textAlign={"center"}
+                id="nested-modal-title"
+                level="h5"
+              >
+                  Time
+              </Typography>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoItem componentName="TimePicker" valueType="time" >
+          <TimePicker  onChange={handleCheckINTime}/>
+                 </DemoItem>
+        </LocalizationProvider>
+        </Grid>
 
                 <Grid
               item  style={{
@@ -107,7 +181,7 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
               <DemoItem components={["DatePicker"]}>
                   <DatePicker
                     views={["year", "month", "day"]}
-                   
+                    onChange={handleOUTDate}
                     label="Select Date"
                     disablePast
                   />
@@ -119,33 +193,14 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
              
 
 
-                <Grid
-              item
-              style={{
-                width: "70%",
-              }}
-            >
-                 <Typography
-                textAlign={"center"}
-                id="nested-modal-title"
-                level="h5"
-              >
-                  Time
-              </Typography>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoItem componentName="TimePicker" valueType="time" >
-          <TimePicker />
-                 </DemoItem>
-        </LocalizationProvider>
-        </Grid>
-         <Grid item style={{width:"70%" , }}>
+         <Grid item style={{width:"70%"}}>
              <Typography
                 textAlign={"center"}
                 id="nested-modal-title"
                 level="h5"
               >Rooms</Typography>
 
-       <ButtonGroup style={{marginTop:"10px"}}>
+       <ButtonGroup>
           <Button
             aria-label="reduce"
             onClick={() => {
@@ -158,6 +213,9 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
              value={count}
              min={0}
              className="Input"
+             onChange={()=>{
+              selectedRooms(event.target.value);
+             }}
              readOnly></input>
           <Button
             aria-label="increase"
@@ -177,22 +235,31 @@ const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
             
             
             </Grid>     
-          <Grid item style={{width:"70px"}}  position={"relative"}>
-           
-            <Button
-                 direction={'row'} 
+            <Grid item style={{width:"70px"}} >
+            <Box
+                sx={{
+                  mt: 5,
+                  display: "flex",
+                  gap: 1,
+                  flexDirection: { xs: "column", sm: "row-reverse" },
+                  justifyContent: "center",
+                }}
+              >
+                <Button
+                  variant="solid"
+                  color="primary"
                   onClick={() => handleSubmit()}
                 >
                   Make A Booking
                 </Button>
                 <Button
-                 direction={'row'} 
-                 onClick={() => handleSubmit()}
-               >
-                 Cancel
-               </Button>
-
-
+                  variant="outlined"
+                  color="neutral"
+                  //   onClick={() => setOpenType("")}
+                >
+                  Cancel
+                </Button>
+              </Box>
               </Grid>    
               
                 

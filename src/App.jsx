@@ -4,17 +4,22 @@ import Footer from './components/Footer'
 import {Grid} from '@mui/material'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookingPage from './components/BookingPage';
+import { useState } from 'react';
+import { Appprovider } from './components/Context';
 function App() {
   
   const Layout = () => {
-
-
+    const [SearchHotel, setSearchHotel] = useState("")
+ 
     return (
+      <Appprovider value={{setSearchHotel, SearchHotel}}>
         <>
             <Navbar/>
             <BookingPage/>
             <Footer/>
             </>
+
+      </Appprovider>
     
     );
   };

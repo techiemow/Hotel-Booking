@@ -29,7 +29,8 @@ export const locations = [
     "Gym",
     "Indoor Games",
     "Outdoor Games",
-    "Swimming Pool"
+    "Swimming Pool",
+    "theatre"
   ]
 
   
@@ -39,14 +40,16 @@ export const hotels = {
         "id": "0d129aa4-31ad-4345-a226-1551e63c5658",
           "name": "The Park Chennai",
           "ratings": 4.2,
-          "price_per_night_INR": 6000,
+          "price_per_night_INR": "6000",
           "amenities": [
             "Luxurious Rooms",
             "Multiple Dining Options",
             "Pool",
             "Spa",
             "Fitness Center",
-            "Free WiFi"
+            "Free WiFi",
+            "theatre"
+
           ],
           "location": "Anna Salai, Chennai",
           "description": "The Park Chennai is a stylish and contemporary hotel located in the heart of Chennai's business district. The hotel offers luxurious accommodations with modern amenities and facilities. Guests can enjoy a range of dining options, including fine cuisine and innovative cocktails. The hotel features a rooftop pool, spa, fitness center, and complimentary WiFi access.",
@@ -57,7 +60,7 @@ export const hotels = {
         "id": "4f3b2a18-7e7c-4d20-9f1d-44d0fc15b5f1",
         "name": "Taj Coromandel",
         "ratings": 4.7,
-        "price_per_night_INR": 12000,
+        "price_per_night_INR": "12000",
         "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center"],
         "location": "Nungambakkam, Chennai",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRghVBa4kg2YKQRw2OzyH7SZ3hoXMUdWynD-quF2LLPaQ&s"
@@ -66,7 +69,7 @@ export const hotels = {
         "id": "ab18b5e3-4e42-47d9-8588-7c85b1b08e14",
         "name": "ITC Grand Chola",
         "ratings": 4.6,
-        "price_per_night_INR": 10500,
+        "price_per_night_INR": "10500",
         "amenities": ["Royal Suites", "Multiple Restaurants", "Pool", "Banquet Halls"],
         "location": "Guindy, Chennai",
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/01/24/9e/exterior.jpg?w=1200&h=-1&s=1"
@@ -75,7 +78,7 @@ export const hotels = {
         "id": "c3d0ba0e-9a7f-489b-b49f-6a0e742e178e",
         "name": "Radisson Blu Hotel Chennai City Centre",
         "ratings": 4.3,
-        "price_per_night_INR": 6500,
+        "price_per_night_INR": "6500",
         "amenities": ["Free WiFi", "Restaurant", "Bar", "Fitness Center"],
         "location": "Egmore, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/248393998.jpg?k=e261f2e2f26e5614ff6865d29eee41059257cc49a7b1dc7b907946a71d455b3a&o=&hp=1"
@@ -84,7 +87,7 @@ export const hotels = {
         "id": "a0b45e7d-46df-4f62-81a0-85e58b5e6c47",
         "name": "Hyatt Regency Chennai",
         "ratings": 4.4,
-        "price_per_night_INR": 9500,
+        "price_per_night_INR": "9500",
         "amenities": ["Spacious Rooms", "Outdoor Pool", "Fitness Center", "Spa"],
         "location": "Anna Salai, Chennai",
         "image": "https://ik.imgkit.net/3vlqs5axxjf/external/http://images.ntmllc.com/v4/hotel/T57/T57772/T57772_EXT_Z9E8C1.JPG?tr=w-360%2Ch-379%2Cfo-auto"
@@ -93,7 +96,7 @@ export const hotels = {
         "id": "73c25472-c82a-48e2-805f-72f474150ac1",
         "name": "The Leela Palace Chennai",
         "ratings": 4.8,
-        "price_per_night_INR": 14500,
+        "price_per_night_INR": "14500",
         "amenities": ["Luxury Suites", "Fine Dining", "Beach Access", "Spa"],
         "location": "MRC Nagar, Chennai",
         "image": "https://www.theleela.com/prod/content/assets/styles/tl_500_621_webp/public/2024-01/The-Leela-Palace-Chennai-5-star-hotel.jpg.webp?VersionId=O4RROZrREuT.8zTUVjO21R0xej4Jmhk1&itok=FXkNyHR3"
@@ -102,7 +105,7 @@ export const hotels = {
         "id": "64f6ed5c-003e-4c9b-bae1-f3d5c940ebcc",
         "name": "The Raintree Hotel, Anna Salai",
         "ratings": 4.5,
-        "price_per_night_INR": 8000,
+        "price_per_night_INR": "8000",
         "amenities": ["Luxurious Rooms", "Rooftop Restaurant", "Fitness Center", "Spa"],
         "location": "Anna Salai, Chennai",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT86v77dxUfNddbxoBRtkvShXkDGinfOeOMB40xq77pcw&s"
@@ -111,7 +114,7 @@ export const hotels = {
         "id": "90291e45-4188-4b3e-a7de-358a1b61d142",
         "name": "Courtyard by Marriott Chennai",
         "ratings": 4.2,
-        "price_per_night_INR": 7000,
+        "price_per_night_INR": "7000",
         "amenities": ["Modern Rooms", "All-Day Dining", "Outdoor Pool", "Gym"],
         "location": "Teynampet, Chennai",
         "image": "https://magarticles.magzter.com/articles/3334/279618/5afb07b487a20/Courtyard-By-Marriott-Makes-A-Comeback-In-Chennai.jpg"
@@ -120,7 +123,7 @@ export const hotels = {
         "id": "da3461bb-e124-4a5b-803e-589ee6f14ec5",
         "name": "Hilton Chennai",
         "ratings": 4.4,
-        "price_per_night_INR": 9000,
+        "price_per_night_INR": "9000",
         "amenities": ["Spacious Suites", "Fine Dining", "Swimming Pool", "Fitness Center"],
         "location": "Guindy, Chennai",
         "image": "https://www.hilton.com/im/en/MAAHIHI/4810769/hilton-chennai-exterior-updated-2015-copy.jpg?impolicy=crop&cw=2439&ch=1365&gravity=NorthWest&xposition=0&yposition=841&rw=768&rh=430"
@@ -129,7 +132,7 @@ export const hotels = {
         "id": "c1fe2ac1-404e-4741-858e-f6b3d9faae7f",
         "name": "Feathers - A Radha Hotel",
         "ratings": 4.3,
-        "price_per_night_INR": 6500,
+        "price_per_night_INR": "6500",
         "amenities": ["Elegant Rooms", "Multi-Cuisine Restaurant", "Spa", "Banquet Halls"],
         "location": "Porur, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max500/90449362.jpg?k=f096410b8a0e379611786ea35da3f708280bfdacbd982df774689d32519c3363&o=&hp=1"
@@ -138,7 +141,7 @@ export const hotels = {
         "id": "2bfa4e01-6efb-4ee7-af0f-2a38ae85d456",
         "name": "Park Hyatt Chennai",
         "ratings": 4.6,
-        "price_per_night_INR": 11000,
+        "price_per_night_INR": "11000",
         "amenities": ["Luxury Accommodations", "Award-Winning Dining", "Spa", "Pool"],
         "location": "Velachery, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/529051800.jpg?k=d6363272319772e10fb8093bd3b6383faf49c6bf585f3059e105b268be51d509&o=&hp=1"
