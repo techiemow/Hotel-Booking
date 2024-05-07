@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import axios from "axios"; // Import axios for API requests
 import { apiurl } from "./constants";
 
-const Loginpage = ({ openType, setOpenType }) => {
+const Loginpage = ({ OpenType, setOpenType }) => {
   const initialValues = {
     username: "",
     password: "",
@@ -17,7 +17,8 @@ const Loginpage = ({ openType, setOpenType }) => {
   });
 
   const handleSubmit = async (values) => {
-    console.log("Login form submitted:", values);
+   
+    
     let Username = values.username
     let Password = values.password
    console.log(" Username and Password are required for",`${apiurl}/login/${Username}/${Password}`)
@@ -27,6 +28,7 @@ const Loginpage = ({ openType, setOpenType }) => {
         );
         if (apiResponse.data && apiResponse.data !== "Login Failed") {
           localStorage.setItem("login", apiResponse.data);
+          setOpenType("");
           return;
         } else {
           alert("Login Failed by one step");
@@ -40,7 +42,7 @@ const Loginpage = ({ openType, setOpenType }) => {
 
   return (
     <div>
-      <Modal open={openType==="Login"} onClose={() => setOpenType("")}>
+      <Modal open={OpenType ==="Login"} onClose={() => setOpenType("")}>
         <ModalDialog
           minWidth={600}
           aria-labelledby="nested-modal-title"

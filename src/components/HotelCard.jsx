@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,21 +7,36 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { hotels } from './constants';
 import { Grid } from '@mui/material';
+import HotelBookingModal from './HotelBookingModal';
 
 const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
+
+  const [selectedHotelId , setSelectedHotelID] = useState("")
+
   const urlLocation = location ? location.toLowerCase() : "chennai";
   const hotelData = hotels[urlLocation] || []; 
 
+
   console.log("Loading hotel data...", hotelData); 
 
+ const handleclick = function (HotelID) {
+  setSelectedHotelID(HotelID)
+
+ }
+
   return (
+    <Grid item>
     <Grid container spacing={2}>
       {hotelData.map((hotel, index) => {
-        const { name, location, amenities, price_per_night_INR, image, ratings } = hotel;
+        const { id, name, location, amenities, price_per_night_INR, image, ratings } = hotel;
 
         return (
-          <Grid item key={index} xs={12} sm={6} md={4}>
-             <Card sx={{ maxWidth: 345 }}>
+          <Grid item 
+          onClick={() => handleclick(id)}
+        
+          key={index} xs={12} sm={6} md={4}>
+            {console.log(id)}
+             <Card sx={{ maxWidth: 345 }} height={100}>
                 <div style={{ position: "relative" }}>
                   <CardMedia
                     sx={{ height: 275 }}
@@ -69,6 +84,11 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
           </Grid>
         );
       })}
+    </Grid>
+    <HotelBookingModal 
+    setSelectedHotelID={setSelectedHotelID}
+    selectedHotelId={selectedHotelId}
+     />
     </Grid>
   );
 };

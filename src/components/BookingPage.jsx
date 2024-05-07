@@ -81,7 +81,7 @@ const BookingPage = () => {
             <button className='btn btn-primary' onClick={()=>{
               setcompare(true);
             }}>Compare</button>
-   
+            <Compare  compare={compare} setcompare={setcompare}/>
           </Grid>
 
           <Grid item>

@@ -11,10 +11,21 @@ import Registration from './registration';
 
 
 const Navbar = () => {
-  const [openType, setOpenType] = useState("");
+  const [OpenType, setOpenType] = useState("");
+  const [ShowMyBookingModal, setShowMyBookingModal]= useState(false);
 
   const navigate = useNavigate();
+  const username = localStorage.getItem("login") || ""; 
 
+  
+  const handleLogout = () => {
+    localStorage.setItem("login", "");
+    window.location.reload();
+  };
+
+  const handleMyBookings = () => {
+    setShowMyBookingModal(true);
+  };
 
   return (
    
@@ -54,7 +65,9 @@ const Navbar = () => {
                     placeholder="Enter the name of Hotel"
                     fullWidth
                   />
-
+              
+              { ! username ? (
+               <>
                <Button  className='Item m-2 mx-5' variant="contained" color="primary"
               onClick={()=>{
                 setOpenType("Login")
@@ -68,7 +81,27 @@ const Navbar = () => {
               }}>
                 Register
               </Button>
+              </>
 
+            ) : (
+              <>
+              <Button  className='Item m-2 mx-5' variant="contained" color="primary"
+              onClick={()=>{
+                 handleMyBookings
+              }}>
+              MyBookings
+              </Button>
+
+                    <Button  className='Item m-2 mx-5' variant="contained" color="primary"
+                    onClick={()=>{
+                      handleLogout();
+                    }}>
+                    Logout
+                    </Button>
+
+                    </>
+
+            )}
 
     </div>
   </div>
@@ -77,11 +110,12 @@ const Navbar = () => {
 
 
       
+       
 
 
-        < Loginpage openType={openType} setopenType={setOpenType} />
-        < Registration openType={openType} setopenType={setOpenType}/>
-
+        < Loginpage OpenType={OpenType} setOpenType={setOpenType} />
+        < Registration OpenType={OpenType} setOpenType={setOpenType}/>
+       
         </nav>
         </AppBar> 
       

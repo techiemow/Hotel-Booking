@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { apiurl } from "./constants";
 
-const Registration = ({ openType, setOpenType }) => {
+const Registration = ({ OpenType, setOpenType }) => {
   const validationSchema = Yup.object({
     username: Yup.string().required("Username is required"),
     phonenumber: Yup.string().required("Phone number is required"),
@@ -48,6 +48,7 @@ const Registration = ({ openType, setOpenType }) => {
           confirmPassword: "", // Assuming you also want to reset confirmPassword
         });
          // Close modal
+         setOpenType(" ")
       }
     } catch (error) {
       console.error("Registration error:", error);
@@ -59,7 +60,7 @@ const Registration = ({ openType, setOpenType }) => {
   
   return (
     <div>
-      <Modal open={openType === "Register"} onClose={() => setOpenType("")}>
+      <Modal open={OpenType === "Register"} onClose={() => setOpenType("")}>
         <ModalDialog
           minWidth={600}
           aria-labelledby="nested-modal-title"
