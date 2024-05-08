@@ -12,12 +12,13 @@ import { Appcontext } from './Context';
 
 const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
 
-  const [selectedHotelId,setSelectedHotelID] = useState(false)
+  const [selectedHotel,setSelectedHotel] = useState(false)
+  const [HotelId , setHotelId] = useState("")
 
   const urlLocation = location ? location.toLowerCase() : "chennai";
   let hotelData = hotels[urlLocation] || []; 
 
-  const { searchedHotel } = useContext(Appcontext);
+  const { SearchHotel } = useContext(Appcontext);
 
   if (filteredTags?.length) {
 
@@ -83,9 +84,10 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
 
 
   //search pending
-  if (searchedHotel?.length) {
+  if (SearchHotel?.length) {
       hotelData = hotelData.filter((eachHotel) => {
-      if (eachHotel.name.toLowerCase().includes(searchedHotel.toLowerCase())) {
+      if (eachHotel.name.toLowerCase().includes(SearchHotel.toLowerCase())) {
+        console.log(`Found ${eachHotel.name}`);
         return true;
       }
       return false;
@@ -93,8 +95,9 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
   }
 
 
- const handleclick = function () {
-  setSelectedHotelID(true)
+ const handleclick = function (id) {
+  setSelectedHotel(true)
+  setHotelId(id)
 }
 
   return (
@@ -105,7 +108,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
 
         return (
           <Grid item 
-          onClick={handleclick}
+          onClick={() => handleclick (id)}
         
           key={index} xs={12} sm={6} md={4}>
           
@@ -159,8 +162,11 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
       })}
     </Grid>
     <HotelBookingModal 
-    setSelectedHotelID={setSelectedHotelID}
-    selectedHotelId={selectedHotelId}
+    location={location}
+    setSelectedHotel={setSelectedHotel}
+    selectedHotel={selectedHotel}
+    HotelId = {HotelId}
+    setHotelId = {setHotelId}
      />
     </Grid>
   );

@@ -9,7 +9,7 @@ import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { apiurl } from './constants';
+import { apiurl, hotels } from './constants';
 
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import axios from 'axios';
@@ -19,16 +19,22 @@ import axios from 'axios';
 const username = localStorage.getItem("login")||"";
 
 
-const HotelBookingModal = ({ selectedHotelId, setselectedHotelId }) => {
+const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId ,   setHotelId  }) => {
 
   const [count,setCount] = useState(0)
   
+  const urlLocation = location ? location.toLowerCase() : "chennai";
+  let hotelData = hotels[urlLocation] || []; 
+
+
 
   const [BookingDetails , setBookingDetails] = useState({
     selectedInDate: "",
     selectedTime: "",
     selectedOutDate: "",
     selectedRooms: 0,
+    Price: 0
+    
   })
   const handleINDate = async (value) => {
     const day = new Date(value).getDate();
@@ -82,6 +88,7 @@ const decrementCount = () => {
     setBookingDetails({
       ...BookingDetails,
       selectedRooms: count - 1,
+      Price: (count - 1) * calculatePrice()
     });
   }
 };
@@ -93,19 +100,30 @@ const incrementCount = () => {
   setBookingDetails({
    ...BookingDetails,
     selectedRooms: count + 1,
+    Price: (count + 1) * calculatePrice()
   });
+};
+
+const calculatePrice = () => {
+  const selectedHotelData = hotelData.find((hotel) => hotel.id === HotelId);
+  if (selectedHotelData) {
+    const pricePerNight = parseFloat(selectedHotelData.price_per_night_INR);
+    return pricePerNight;
+  }
+  return 0; // Return 0 if hotel data not found
 };
 
   console.log(BookingDetails);
 
 
  const handleSubmit = async () => {
-    const {selectedTime,selectedRooms, selectedOutDate, selectedInDate } = BookingDetails;
-    if(selectedInDate?.length &&
-      selectedOutDate?.length &&
-      selectedTime?.length &&
-      selectedRooms &&
-      username 
+    const {selectedTime,selectedRooms, selectedOutDate, selectedInDate,Price } = BookingDetails;
+    if(selectedInDate?.length ||
+      selectedOutDate?.length ||
+      selectedTime?.length ||
+      selectedRooms ||
+      username &&
+      Price
     
       
     
@@ -118,6 +136,9 @@ const incrementCount = () => {
         selectedOutDate,
         selectedInDate,
         username,
+        Price,
+      
+
        
 
       })
@@ -145,11 +166,11 @@ const incrementCount = () => {
 
 
   const handleClose = () => {
-    setselectedHotelId(""); // Call setselectedHotelId to close the modal by setting selectedHotelId to ""
+    setSelectedHotel(false);
   };
 
   return (
-    <Modal open={(selectedHotelId)} onClose={handleClose}>
+    <Modal open={selectedHotel} onClose={()=>handleClose()}>
       <ModalDialog
         minWidth={600}
         aria-labelledby="nested-modal-title"
@@ -295,16 +316,8 @@ const incrementCount = () => {
                 textAlign={"center"}
                 id="nested-modal-title"
                 level="h5"
-              >Price</Typography>
-                 <Grid item>
-              <Typography
-                textAlign={"center"}
-                id="nested-modal-title"
-                level="h5"
-              ></Typography>
-              
-
-                </Grid>  
+              >Price:INR {BookingDetails.Price}</Typography>
+                
 
                 </Grid>  
 
@@ -316,19 +329,18 @@ const incrementCount = () => {
             
             
             </Grid>     
-          <Grid item style={{width:"70px"}} className='d-flex justify-content-center '>
+          <Grid item style={{width:"70px",height:"30px"}} className='d-flex justify-content-center m-3' >
            
             <Button
                  direction={'row'} 
                   onClick={() => handleSubmit()}
                   className='mx-5'
-                  style={{width:"100px"}}
-                >
+                 >
                   Make A Booking and Pay
                 </Button>
                 <Button
                  direction={'row'} 
-                
+                 onClick={()=>handleClose()}
                >
                  Cancel
                </Button>

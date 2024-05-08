@@ -9,6 +9,7 @@ import { locations } from './constants';
 import Loginpage from './loginpage';
 import Registration from './registration';
 import { Appcontext } from './Context';
+import MyBookings from './MyBookings';
 
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem("login") || ""; 
 
-  const { setSearchedHotel,SearchHotel } = useContext(Appcontext);
+  const { setSearchHotel } = useContext(Appcontext);
 
   const handleLogout = () => {
     localStorage.setItem("login", "");
@@ -27,12 +28,14 @@ const Navbar = () => {
 
   const handleMyBookings = () => {
     setShowMyBookingModal(true);
+  
   };
 
   const handleNameChange = (event) => {
-    setSearchedHotel(event.target.value);
-    console.log(SearchHotel);
+    setSearchHotel(event.target.value);
+    console.log(event.target.value);
   };
+ 
 
   return (
    
@@ -94,9 +97,9 @@ const Navbar = () => {
             ) : (
               <>
               <Button  className='Item m-2 mx-5' variant="contained" color="primary"
-              onClick={()=>{
+              onClick={
                  handleMyBookings
-              }}>
+              }>
               MyBookings
               </Button>
 
@@ -123,6 +126,14 @@ const Navbar = () => {
 
         < Loginpage OpenType={OpenType} setOpenType={setOpenType} />
         < Registration OpenType={OpenType} setOpenType={setOpenType}/>
+
+
+        {ShowMyBookingModal && (
+        <MyBookings
+        ShowMyBookingModal={ShowMyBookingModal}
+          setShowMyBookingModal={setShowMyBookingModal}
+        />
+      )}
        
         </nav>
         </AppBar> 

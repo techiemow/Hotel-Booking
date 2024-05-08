@@ -12,7 +12,7 @@ function App() {
     const [SearchHotel, setSearchHotel] = useState("")
  
     return (
-      <Appprovider value={{setSearchHotel, SearchHotel}}>
+      <Appprovider value={{ SearchHotel, setSearchHotel}}>
         <>
             <Navbar/>
             <BookingPage/>
