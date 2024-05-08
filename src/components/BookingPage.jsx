@@ -50,16 +50,16 @@ const BookingPage = () => {
     container
     style={{
       marginTop:"auto",
-      width: 1600
+      width: 1650
     }}
     spacing={12}
     columnSpacing={1}
      >
-    <Grid item lg={2} md={2} sm={2} >
+    <Grid item lg={2.5} md={2} sm={2} >
         <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
       </Grid>
 
-    <Grid item lg={8} md={6} sm={4} >
+    <Grid item lg={8.5} md={6} sm={4} >
       <Grid item>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}

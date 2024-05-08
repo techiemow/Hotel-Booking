@@ -13,10 +13,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { apiurl } from "./constants";
+import Review from "./Review";
 
 const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   const [bookingresponse, setBookingResponse] = useState([]);
   const [order, setOrder] = useState(null);
+  const[Reviewpage, setReviewPage] = useState(false);
 
   const username = localStorage.getItem("login") || "";
 
@@ -129,10 +131,15 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                       <Button color="danger" onClick={() => handleCancelBooking(row._id)}>
                         Cancel
                       </Button>
+                      </TableCell>
+                      <TableCell align="right">
                       <Button color="success" onClick={() => handleCreateOrder(row.Price)}>
                         Online Payment
                       </Button>
-                    </TableCell>
+                      </TableCell>
+                      
+       
+                   
                   </TableRow>
                 ))}
               </TableBody>
@@ -143,6 +150,17 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
               Pay ₹{order.amount / 100}
             </Button>
           )}
+
+<Button color="blue" onClick={()=>setReviewPage(true)} >
+                        Review
+                        
+                      </Button>
+                     {Reviewpage && (
+                      <Review setReviewPage={setReviewPage} Reviewpage={Reviewpage}/>
+                     )
+                     }
+            
+         
         </ModalDialog>
       </Modal>
     </>
