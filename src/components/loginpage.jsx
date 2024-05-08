@@ -26,8 +26,9 @@ const Loginpage = ({ OpenType, setOpenType }) => {
         const apiResponse = await axios.get(
           `${apiurl}/Login/${Username}/${Password}`
         );
+        localStorage.setItem('login', apiResponse.data)
         if (apiResponse.data && apiResponse.data !== "Login Failed") {
-          localStorage.setItem("login", apiResponse.data);
+          console.log(apiResponse.data)
           setOpenType("");
           return;
         } else {

@@ -16,7 +16,7 @@ import axios from 'axios';
 
 
 
-const username = localStorage.getItem("login")||"";
+
 
 
 const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId ,   setHotelId  }) => {
@@ -34,6 +34,7 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
     selectedOutDate: "",
     selectedRooms: 0,
     Price: 0
+  
     
   })
   const handleINDate = async (value) => {
@@ -116,12 +117,15 @@ const calculatePrice = () => {
   console.log(BookingDetails);
 
 
+  const username = localStorage.getItem("login")||"";
+
+
  const handleSubmit = async () => {
     const {selectedTime,selectedRooms, selectedOutDate, selectedInDate,Price } = BookingDetails;
     if(selectedInDate?.length ||
       selectedOutDate?.length ||
       selectedTime?.length ||
-      selectedRooms ||
+      selectedRooms &&
       username &&
       Price
     

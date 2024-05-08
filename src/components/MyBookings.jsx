@@ -14,125 +14,139 @@ import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { apiurl } from "./constants";
 
+const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
+  const [bookingresponse, setBookingResponse] = useState([]);
+  const [order, setOrder] = useState(null);
 
-const MyBookings = ({ShowMyBookingModal, setShowMyBookingModal}) => {
-  
-    const [bookingresponse, setBookingResponse] = useState([]);
+  const username = localStorage.getItem("login") || "";
 
-    const username = localStorage.getItem("login")||"";
+  useEffect(() => {
+    if (username) {
+      axios.get(`${apiurl}/mybookings/${username}`).then((response) => {
+        if (response.data?.length) {
+          console.log(response.data, "response.data");
 
-
-    useEffect(() => {
-        if (username) {
-          axios.get(`${apiurl}/mybookings/${username}`).then((response) => {
-            if (response.data?.length) {
-              console.log(response.data, "response.data");
-    
-              const totalBookings = response?.data?.filter(
-                (ele) => ele.isCancelled == false
-              );
-              setBookingResponse(totalBookings);
-            }
-          });
+          const totalBookings = response?.data?.filter(
+            (ele) => ele.isCancelled === false
+          );
+          setBookingResponse(totalBookings);
         }
-      }, []);
+      });
+    }
+  }, [username]);
 
-      const handleCancelBooking = (bookingId) => {
-        axios
-          .put(`${apiurl}/cancelBooking/${username}/${bookingId}`)
-          .then((response) => {
-            if (response.data) {
-              console.log(response.data);
-              if (response.data === "Cancelled Success") {
-                alert("Cancelled Success");
-                setShowMyBookingModal(false);
-              }
-            }
-          });
-      };
+  const handleCancelBooking = (bookingId) => {
+    axios
+      .put(`${apiurl}/cancelBooking/${username}/${bookingId}`)
+      .then((response) => {
+        if (response.data) {
+          console.log(response.data);
+          if (response.data === "Cancelled Success") {
+            alert("Cancelled Success");
+            setShowMyBookingModal(false);
+          }
+        }
+      });
+  };
 
+  const handleCreateOrder = async (price) => {
+    try {
+      const response = await axios.post("http://localhost:4000/payment", {
+        amount: price * 100, // Convert price to cents (assuming price is in rupees)
+        currency: "INR",
+      });
 
+      const { data } = response;
+      setOrder(data);
+    } catch (error) {
+      console.error("Error creating order:", error);
+    }
+  };
+
+  const handlePayment = async () => {
+    if (!order) return;
+
+    const options = {
+      key: "rzp_test_DClMygpDU9TijX",
+      amount: order.amount,
+      currency: order.currency,
+      name: "Hotel-booking",
+      description: "Payment for Your Hotel-Booking",
+      order_id: order.id,
+      handler: async (response) => {
+        console.log(response);
+        // Handle success callback
+      },
+      prefill: {
+        name: "Customer Name",
+        email: "customer@example.com",
+        contact: "9876543210",
+      },
+      notes: {
+        address: "Customer Address",
+      },
+      theme: {
+        color: "#F37254",
+      },
+    };
+
+    const razorpayInstance = new window.Razorpay(options);
+    razorpayInstance.open();
+  };
 
   return (
     <>
-    <Modal
-    open={ShowMyBookingModal}
-    onClose={() => setShowMyBookingModal(false)}
-  >
-    <ModalDialog
-      minWidth={600}
-      aria-labelledby="nested-modal-title"
-      aria-describedby="nested-modal-description"
-      sx={(theme) => ({
-        [theme.breakpoints.only("xs")]: {
-          top: "unset",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          borderRadius: 0,
-          transform: "none",
-        },
-      })}
-    >
-      <Typography textAlign={"center"} id="nested-modal-title" level="h2">
-        {"Your Bookings"}
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-             <TableCell align="right">Booking ID</TableCell>
-              <TableCell align="right">username</TableCell>
-              <TableCell align="right">Check-IN Time</TableCell>
-              <TableCell align="right">Rooms</TableCell>
-              <TableCell align="right">Check-IN Date</TableCell>
-              <TableCell align="right">Check-Out Date</TableCell>
-         
-              <TableCell align="right">Price</TableCell>
+      <Modal open={ShowMyBookingModal} onClose={() => setShowMyBookingModal(false)}>
+        <ModalDialog minWidth={600}>
+          <Typography textAlign={"center"} variant="h2">
+            Your Bookings
+          </Typography>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right">Booking ID</TableCell>
+                  <TableCell align="right">Username</TableCell>
+                  <TableCell align="right">Check-IN Time</TableCell>
+                  <TableCell align="right">Rooms</TableCell>
+                  <TableCell align="right">Check-IN Date</TableCell>
+                  <TableCell align="right">Check-Out Date</TableCell>
+                  <TableCell align="right">Price (INR)</TableCell>
+                  <TableCell align="right">Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {bookingresponse.map((row) => (
+                  <TableRow key={row._id}>
+                    <TableCell align="right">{row._id}</TableCell>
+                    <TableCell align="right">{row.username}</TableCell>
+                    <TableCell align="right">{row.selectedTime}</TableCell>
+                    <TableCell align="right">{row.selectedRooms}</TableCell>
+                    <TableCell align="right">{row.selectedInDate}</TableCell>
+                    <TableCell align="right">{row.selectedOutDate}</TableCell>
+                    <TableCell align="right">{row.Price}</TableCell>
+                    <TableCell align="right">
+                      <Button color="danger" onClick={() => handleCancelBooking(row._id)}>
+                        Cancel
+                      </Button>
+                      <Button color="success" onClick={() => handleCreateOrder(row.Price)}>
+                        Online Payment
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {order && (
+            <Button onClick={handlePayment}>
+              Pay ₹{order.amount / 100}
+            </Button>
+          )}
+        </ModalDialog>
+      </Modal>
+    </>
+  );
+};
 
-            </TableRow>
-          </TableHead>
-
-
-          
-
-
-
-
-          <TableBody>
-            {bookingresponse.map((row) => (
-              <TableRow
-                key={row._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row._id}
-                </TableCell>
-                <TableCell align="right">{row.username}</TableCell>
-                <TableCell align="right">{row.selectedTime}</TableCell>
-                <TableCell align="right">{row.selectedRooms}</TableCell>
-                <TableCell align="right">{row.selectedInDate}</TableCell>
-                <TableCell align="right">{row.selectedOutDate}</TableCell>
-                <TableCell align="right">{row.Price}</TableCell>
-
-                <TableCell align="right">
-                  <Button
-                    type="reset"
-                    color="danger"
-                    onClick={() => handleCancelBooking(row._id)}
-                  >
-                    Cancel
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </ModalDialog>
-  </Modal>
-  </>
-  )
-}
-
-export default MyBookings
+export default MyBookings;
