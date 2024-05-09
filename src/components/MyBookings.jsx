@@ -82,7 +82,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       key: "rzp_test_DClMygpDU9TijX",
       amount: order.amount,
       currency: order.currency,
-      name: "Hotel-booking",
+      name: "BookHaven",
       description: "Payment for Your Hotel-Booking",
       order_id: order.id,
       handler: async (response) => {

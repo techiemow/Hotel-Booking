@@ -330,8 +330,6 @@ const calculatePrice = () => {
         </Button>
       </ButtonGroup>
 
-      {/* Optional: Display selected rooms */}
-      <p>Selected Rooms: {BookingDetails.selectedRooms}</p>
 
         <Grid item className='m-2'>
               <Typography
