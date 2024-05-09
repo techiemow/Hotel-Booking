@@ -1,20 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-
- <footer>
-    <div className="text-center">
+    <footer className="footer mt-auto py-3 bg-light">
+      <div className="container text-center">
         <p>&copy; 2024 BookHaven. All rights reserved.</p>
         <ul className="list-inline">
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">FAQ</a></li>
+          <li className="list-inline-item"><a href="#">Privacy</a></li>
+          <li className="list-inline-item"><a href="#">Terms</a></li>
+          <li className="list-inline-item"><a href="#">FAQ</a></li>
         </ul>
-    </div>
-   </footer>
-    
-  )
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

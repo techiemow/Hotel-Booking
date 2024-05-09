@@ -280,6 +280,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/465561227.jpg?k=687e02385e03d55e5f7b3f94f4494d9e730429fcd66f3d42c8b4764bd4ac6a3f&o=&hp=1"
       },
       {
+        "id": "a7f4c9a1-9e4b-4fc8-af97-62b84b5bca6d",
         "name": "Le Meridien New Delhi",
         "ratings": 4.6,
         "price_per_night_INR": 12000,
@@ -299,6 +300,7 @@ export const hotels = {
       },
       
       {
+        "id": "f2e1d4b9-3e0f-4faa-88f8-9d4dfe217aaf",
         "name": "The Leela Palace New Delhi",
         "ratings": 4.9,
         "price_per_night_INR": 25000,
@@ -307,6 +309,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5648061.jpg?k=4629f919fb92436c3e19b71734d208d8e58201df7b29773f90089639f367db6d&o=&hp=1"
       },
       {
+        "id": "3d17c773-84f0-4f84-bd6f-0fe92759d38a",
         "name": "Taj Palace, New Delhi",
         "ratings": 4.7,
         "price_per_night_INR": 18000,
@@ -315,6 +318,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/336041746.jpg?k=81ca9e45244b4f17cb199c4ac73d2094446ebd17020c5c1425a44a23e860b562&o=&hp=1"
       },
       {
+        "id": "6e8d58c2-5250-4b17-b7a3-6f2ef8e4d14c",
         "name": "ITC Maurya, New Delhi",
         "ratings": 4.5,
         "price_per_night_INR": 15000,
@@ -323,6 +327,7 @@ export const hotels = {
         "image": "https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcmaurya-new-delhi/images/overview-landing-page/headmast/desktop/exterior-night.png"
       },
       {
+        "id": "bc8ba842-19f3-4fd3-a9f0-69b2b46c63a4",
         "name": "The Oberoi New Delhi",
         "ratings": 4.8,
         "price_per_night_INR": 22000,
@@ -331,6 +336,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44522456.jpg?k=9947bae2627f2fc1ec561c4284d877d0cddcad32a7e4b3716a84a115b29ee8ff&o=&hp=1"
       },
       {
+        "id": "a8957c5c-8e7f-4f8b-8d53-ba5f0320da9e",
         "name": "Hyatt Regency Delhi",
         "ratings": 4.4,
         "price_per_night_INR": 12000,
@@ -339,6 +345,7 @@ export const hotels = {
         "image": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/01/23/0953/Hyatt-Regency-Delhi-P312-Facade.jpg/Hyatt-Regency-Delhi-P312-Facade.16x9.jpg"
       },
       {
+        "id": "28be7bfa-fa60-4b15-aa6f-49c18079c775",
         "name": "JW Marriott Hotel New Delhi Aerocity",
         "ratings": 4.6,
         "price_per_night_INR": 14000,
@@ -347,6 +354,7 @@ export const hotels = {
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr2pMCRVvLFS18G4PaZXDvvoq7_roUqt1oUPqY39Rh2A&s"
       },
       {
+        "id": "e8f44d16-3b36-4be5-a331-b1c2a9364c42",
         "name": "Shangri-La's - Eros Hotel, New Delhi",
         "ratings": 4.7,
         "price_per_night_INR": 14000,
@@ -364,8 +372,8 @@ export const hotels = {
         "description": "Shangri-La's - Eros Hotel, New Delhi offers luxurious accommodations and world-class amenities. Guests can enjoy exquisite dining experiences, relax at the rooftop bar with panoramic views, unwind by the outdoor swimming pool, rejuvenate at the spa, and stay fit at the fitness center. The hotel also provides excellent business facilities and complimentary WiFi access.",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295686542.jpg?k=88737ca54ca3d4c7da9aa31a9bf881c4878f96fa8b392bd3fc65dfa637679ff5&o=&hp=1"
       },
-      
       {
+        "id": "1a329870-16e0-4a7c-9fbf-b19e8b1838e2",
         "name": "Lodhi Hotel",
         "ratings": 4.7,
         "price_per_night_INR": 20000,
@@ -374,6 +382,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269476314.jpg?k=947be45d7c5867eb4513cdb7d78950694ec98a16330308ff513ef95896fd4602&o=&hp=1"
       },
       {
+        "id": "6b0c45f7-4578-489e-b03f-20b8e989865b",
         "name": "The Imperial New Delhi",
         "ratings": 4.8,
         "price_per_night_INR": 25000,
@@ -382,6 +391,7 @@ export const hotels = {
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/64759184.jpg?k=07d74a7d896acf9ec2a97ad22b5e98dc7f3fe1a5242bf43ca2488a6606f72ef9&o=&hp=1"
       },
       {
+        "id": "bfae9b71-46fd-4397-a8a5-f5e2ba4c8b47",
         "name": "Roseate House New Delhi",
         "ratings": 4.4,
         "price_per_night_INR": 12000,

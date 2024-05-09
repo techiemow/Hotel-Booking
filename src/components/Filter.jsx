@@ -30,7 +30,7 @@ import {
         { width: "100%" }
 
         }>
-        <Accordion defaultExpanded>
+        <Accordion >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"

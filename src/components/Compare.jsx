@@ -102,8 +102,11 @@ const Compare = ({ compare, setcompare }) => {
           <Grid item xs={12} sm={6}>
             <div>
             <Typography variant="h6">{hotelDetails1.name}</Typography>
-              <Typography variant="subtitle1">{hotelDetails1.amenities.join(", ")}</Typography>
+            <hr /> 
+              <Typography variant="subtitle1">Amenities:{hotelDetails1.amenities.join(", ")}</Typography>
+               <br />
               <Typography variant="subtitle1">Location: {hotelDetails1.location}</Typography>
+              <br />
               <Typography variant="subtitle1">Price: {hotelDetails1.price_per_night_INR}</Typography>
             </div>
           </Grid>
@@ -113,8 +116,11 @@ const Compare = ({ compare, setcompare }) => {
           <Grid item xs={12} sm={6}>
             <div>
               <Typography variant="h6">{hotelDetails2.name}</Typography>
-              <Typography variant="subtitle1">Location: {hotelDetails2.amenities.join(", ")}</Typography>
+              <hr /> 
+              <Typography variant="subtitle1">Amenities: {hotelDetails2.amenities.join(", ")}</Typography>
+              <br />
               <Typography variant="subtitle1">Location: {hotelDetails2.location}</Typography>
+              <br />
               <Typography variant="subtitle1">Price: {hotelDetails2.price_per_night_INR}</Typography>
             </div>
           </Grid>

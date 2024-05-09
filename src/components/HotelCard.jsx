@@ -5,25 +5,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { hotels } from './constants';
 import { Grid } from '@mui/material';
 import HotelBookingModal from './HotelBookingModal';
 import { Appcontext } from './Context';
+import { hotels } from './constants';
 
-const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
+const HotelCard = ({ location = '', filteredTags = [], selectedSort = '' }) => {
+  const [selectedHotel, setSelectedHotel] = useState(false);
+  const [HotelId, setHotelId] = useState('');
 
-  const [selectedHotel,setSelectedHotel] = useState(false)
-  const [HotelId , setHotelId] = useState("")
-
-  const urlLocation = location ? location.toLowerCase() : "Delhi"||"delhi";
-  let hotelData = hotels[urlLocation] || []; 
-
+  const urlLocation = location ? location.toLowerCase() : 'Delhi' || 'delhi';
+  let hotelData = hotels[urlLocation] || [];
   const { SearchHotel } = useContext(Appcontext);
 
   if (filteredTags?.length) {
-
-
-   hotelData = hotelData.filter((eachHotel) => {
+    hotelData = hotelData.filter((eachHotel) => {
       let matchFound = true;
       eachHotel.amenities.forEach((tag) => {
         if (filteredTags.includes(tag)) {
@@ -33,9 +29,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
       });
       return !matchFound;
     });
-    
   }
-
 
   const callback = (a, b) => {
     const firstHotel = Number(a.ratings);
@@ -51,7 +45,6 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
   const callbackPriceHL = (a, b) => {
     const firstHotel = Number(a.price_per_night_INR);
     const secondHotel = Number(b.price_per_night_INR);
-
     if (firstHotel > secondHotel) {
       return -1;
     }
@@ -61,48 +54,43 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
   const callbackPriceLH = (a, b) => {
     const firstHotel = Number(a.price_per_night_INR);
     const secondHotel = Number(b.price_per_night_INR);
-
     if (firstHotel > secondHotel) {
       return 1;
     }
     return -1;
   };
 
-  // logic for sorting
+  // Logic for sorting
   if (selectedSort?.length) {
-    if (selectedSort === "Ratings") {
+    if (selectedSort === 'Ratings') {
       hotelData.sort((a, b) => callback(a, b));
     }
-    if (selectedSort === "Price High to Low") {
+    if (selectedSort === 'Price High to Low') {
       hotelData.sort((a, b) => callbackPriceHL(a, b));
     }
-    if (selectedSort === "Price Low to High") {
+    if (selectedSort === 'Price Low to High') {
       hotelData.sort((a, b) => callbackPriceLH(a, b));
     }
   }
 
-
-
-  //search pending
+  // Search logic
   if (SearchHotel?.length) {
-      hotelData = hotelData.filter((eachHotel) => {
+    hotelData = hotelData.filter((eachHotel) => {
       if (eachHotel.name.toLowerCase().includes(SearchHotel.toLowerCase())) {
-        console.log(`Found ${eachHotel.name}`);
         return true;
       }
       return false;
     });
   }
 
-
- const handleclick = function (id) {
-  setSelectedHotel(true)
-  setHotelId(id)
-}
+  const handleclick = (id) => {
+    setSelectedHotel(true);
+    setHotelId(id);
+  };
 
   return (
     <Grid item>
-    <Grid container spacing={2} justifyContent={"space-evenly"} alignItems={"center"}>
+    <Grid container spacing={2} justifyContent="center" alignItems={"space-evenly"}>
       {hotelData.map((hotel, index) => {
         const { id, name, location, amenities, price_per_night_INR, image, ratings } = hotel;
 
@@ -112,7 +100,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
         
           key={index} xs={12} sm={6} md={4}>
           
-             <Card sx={{ maxWidth: 345, maxHeight:650}} >
+             <Card sx={{ maxWidth: 345,  height: '100%' }} >
                 <div style={{ position: "relative" }}>
                   <CardMedia
                     sx={{ height: 275 }}

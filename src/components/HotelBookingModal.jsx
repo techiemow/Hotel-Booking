@@ -107,12 +107,16 @@ const incrementCount = () => {
 
 const calculatePrice = () => {
   const selectedHotelData = hotelData.find((hotel) => hotel.id === HotelId);
+  console.log('Selected Hotel Data:', selectedHotelData);
+  console.log('HotelId:', HotelId);
+  
   if (selectedHotelData) {
     const pricePerNight = parseFloat(selectedHotelData.price_per_night_INR);
     return pricePerNight;
   }
   return 0; // Return 0 if hotel data not found
 };
+
 
   console.log(BookingDetails);
 
