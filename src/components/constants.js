@@ -22,10 +22,9 @@ export const locations = [
     "Pool",
     "Spa",
     "Fitness Center",
-    "Free WiFi", 
-    "Free Parking",
-    "Air Conditioning", 
-    "Breakfast", 
+     "Free WiFi", 
+    "Free Parking", 
+    "Complimentary Breakfast", 
     "Gym",
     "Indoor Games",
     "Outdoor Games",
@@ -48,7 +47,7 @@ export const hotels = {
             "Spa",
             "Fitness Center",
             "Free WiFi",
-            "theatre"
+            "theatre","Free Parking"
 
           ],
           "location": "Anna Salai, Chennai",
@@ -61,7 +60,7 @@ export const hotels = {
         "name": "Taj Coromandel",
         "ratings": 4.7,
         "price_per_night_INR": "12000",
-        "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center"],
+        "amenities": ["Luxury Rooms", "Fine Dining", "Spa",  "Complimentary Breakfast","Fitness Center","Indoor Games" , "Free WiFi"],
         "location": "Nungambakkam, Chennai",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRghVBa4kg2YKQRw2OzyH7SZ3hoXMUdWynD-quF2LLPaQ&s"
       },
@@ -79,7 +78,7 @@ export const hotels = {
         "name": "Radisson Blu Hotel Chennai City Centre",
         "ratings": 4.3,
         "price_per_night_INR": "6500",
-        "amenities": ["Free WiFi", "Restaurant", "Bar", "Fitness Center"],
+        "amenities": ["Free WiFi", "Restaurant", "Bar", "Free Parking","Fitness Center", "Free WiFi"],
         "location": "Egmore, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/248393998.jpg?k=e261f2e2f26e5614ff6865d29eee41059257cc49a7b1dc7b907946a71d455b3a&o=&hp=1"
       },
@@ -88,7 +87,7 @@ export const hotels = {
         "name": "Hyatt Regency Chennai",
         "ratings": 4.4,
         "price_per_night_INR": "9500",
-        "amenities": ["Spacious Rooms", "Outdoor Pool", "Fitness Center", "Spa"],
+        "amenities": ["Spacious Rooms", "Outdoor Pool", "Complimentary Breakfast" ,"Fitness Center", "Spa" , "Free WiFi"],
         "location": "Anna Salai, Chennai",
         "image": "https://ik.imgkit.net/3vlqs5axxjf/external/http://images.ntmllc.com/v4/hotel/T57/T57772/T57772_EXT_Z9E8C1.JPG?tr=w-360%2Ch-379%2Cfo-auto"
       },
@@ -97,7 +96,7 @@ export const hotels = {
         "name": "The Leela Palace Chennai",
         "ratings": 4.8,
         "price_per_night_INR": "14500",
-        "amenities": ["Luxury Suites", "Fine Dining", "Beach Access", "Spa"],
+        "amenities": ["Luxury Suites", "Fine Dining", "Beach Access", "Spa","Indoor Games", "Free Parking"],
         "location": "MRC Nagar, Chennai",
         "image": "https://www.theleela.com/prod/content/assets/styles/tl_500_621_webp/public/2024-01/The-Leela-Palace-Chennai-5-star-hotel.jpg.webp?VersionId=O4RROZrREuT.8zTUVjO21R0xej4Jmhk1&itok=FXkNyHR3"
       },
@@ -106,7 +105,7 @@ export const hotels = {
         "name": "The Raintree Hotel, Anna Salai",
         "ratings": 4.5,
         "price_per_night_INR": "8000",
-        "amenities": ["Luxurious Rooms", "Rooftop Restaurant", "Fitness Center", "Spa"],
+        "amenities": ["Luxurious Rooms", "Rooftop Restaurant", "Fitness Center", "Spa" ,"theatre"],
         "location": "Anna Salai, Chennai",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT86v77dxUfNddbxoBRtkvShXkDGinfOeOMB40xq77pcw&s"
       },
@@ -115,7 +114,7 @@ export const hotels = {
         "name": "Courtyard by Marriott Chennai",
         "ratings": 4.2,
         "price_per_night_INR": "7000",
-        "amenities": ["Modern Rooms", "All-Day Dining", "Outdoor Pool", "Gym"],
+        "amenities": ["Modern Rooms", "All-Day Dining",  "Complimentary Breakfast","Outdoor Pool", "Gym" , "Free WiFi"],
         "location": "Teynampet, Chennai",
         "image": "https://magarticles.magzter.com/articles/3334/279618/5afb07b487a20/Courtyard-By-Marriott-Makes-A-Comeback-In-Chennai.jpg"
       },
@@ -124,7 +123,7 @@ export const hotels = {
         "name": "Hilton Chennai",
         "ratings": 4.4,
         "price_per_night_INR": "9000",
-        "amenities": ["Spacious Suites", "Fine Dining", "Swimming Pool", "Fitness Center"],
+        "amenities": ["Spacious Suites", "Indoor Games","Fine Dining", "Swimming Pool", "Fitness Center", "Free Parking"],
         "location": "Guindy, Chennai",
         "image": "https://www.hilton.com/im/en/MAAHIHI/4810769/hilton-chennai-exterior-updated-2015-copy.jpg?impolicy=crop&cw=2439&ch=1365&gravity=NorthWest&xposition=0&yposition=841&rw=768&rh=430"
       },
@@ -133,7 +132,7 @@ export const hotels = {
         "name": "Feathers - A Radha Hotel",
         "ratings": 4.3,
         "price_per_night_INR": "6500",
-        "amenities": ["Elegant Rooms", "Multi-Cuisine Restaurant", "Spa", "Banquet Halls"],
+        "amenities": ["Elegant Rooms", "Multi-Cuisine Restaurant", "Spa", "Banquet Halls" , "Free WiFi"],
         "location": "Porur, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max500/90449362.jpg?k=f096410b8a0e379611786ea35da3f708280bfdacbd982df774689d32519c3363&o=&hp=1"
       },
@@ -142,7 +141,7 @@ export const hotels = {
         "name": "Park Hyatt Chennai",
         "ratings": 4.6,
         "price_per_night_INR": "11000",
-        "amenities": ["Luxury Accommodations", "Award-Winning Dining", "Spa", "Pool"],
+        "amenities": ["Luxury Accommodations",  "Complimentary Breakfast","Award-Winning Dining", "Spa", "Pool"],
         "location": "Velachery, Chennai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/529051800.jpg?k=d6363272319772e10fb8093bd3b6383faf49c6bf585f3059e105b268be51d509&o=&hp=1"
       }
@@ -154,7 +153,7 @@ export const hotels = {
         "name": "Marine Plaza Mumbai",
         "ratings": 4.2,
         "price_per_night_INR": 8500,
-        "amenities": ["Sea View Rooms", "Rooftop Restaurant", "Bar"],
+        "amenities": ["Sea View Rooms", "Rooftop Restaurant", "Bar","Indoor Games", "Free Parking" , "Free WiFi" ,"theatre"],
         "location": "Marine Drive, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/59516178.jpg?k=493d3d6140fd42c09f66b444fe53139e50ba7d628918bc53fecb5b7f700928c8&o=&hp=1"
       },
@@ -163,7 +162,7 @@ export const hotels = {
         "name": "Grand Hotel Mumbai",
         "ratings": 4.0,
         "price_per_night_INR": 6500,
-        "amenities": ["Free WiFi", "Spa", "Fitness Center"],
+        "amenities": ["Free WiFi", "Spa", "Fitness Center", "Complimentary Breakfast"],
         "location": "Colaba, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/309179823.jpg?k=53b55d5d5014e77e4629c97d3232f10512c5cdd8ec11bac91946ca4caac3dd19&o=&hp=1"
       },
@@ -172,7 +171,7 @@ export const hotels = {
         "name": "The Oberoi Mumbai",
         "ratings": 4.8,
         "price_per_night_INR": 18000,
-        "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center"],
+        "amenities": ["Luxury Rooms", "Fine Dining", "Spa", "Fitness Center", "Complimentary Breakfast", "Free Parking" , "Free WiFi"],
         "location": "Nariman Point, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/28759044.jpg?k=4a3e476214895d86a0e71808d9eb5b85acaebe0cbff06bbd2ecdbb3054d98600&o=&hp=1"
       },
@@ -181,7 +180,7 @@ export const hotels = {
         "name": "JW Marriott Mumbai Juhu",
         "ratings": 4.6,
         "price_per_night_INR": 14000,
-        "amenities": ["Beachfront Location", "Multiple Restaurants", "Pool", "Gym"],
+        "amenities": ["Beachfront Location","Indoor Games", "Multiple Restaurants", "Pool", "Gym" , "Free WiFi" ,"theatre"],
         "location": "Juhu Beach, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/464597788.jpg?k=419098f724e015e920c04382b2a5bc1b95b175e29584004007969abba1adc745&o=&hp=1"
       },
@@ -190,7 +189,7 @@ export const hotels = {
         "name": "The Taj Mahal Palace",
         "ratings": 4.7,
         "price_per_night_INR": 20000,
-        "amenities": ["Historic Luxury", "Iconic Architecture", "Fine Dining", "Spa"],
+        "amenities": ["Historic Luxury", "Iconic Architecture", "Fine Dining", "Spa", "Free Parking" , "Free WiFi"],
         "location": "Colaba, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/103705059.jpg?k=9e078265b31ad1815a573da8ed2a665f863e3925e1efd730df703421868a2ada&o=&hp=1"
       },
@@ -199,7 +198,7 @@ export const hotels = {
         "name": "Trident Nariman Point",
         "ratings": 4.4,
         "price_per_night_INR": 12000,
-        "amenities": ["Seaside Views", "Multiple Dining Options", "Pool", "Fitness Center"],
+        "amenities": ["Seaside Views", "Multiple Dining Options", "Pool", "Fitness Center" ,"theatre"],
         "location": "Nariman Point, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/32810813.jpg?k=7b5f861c6aad4e51ef13e55c8b68ac945cebdf77aeca84d9c2798bb9af46d24d&o=&hp=1"
       },
@@ -208,7 +207,7 @@ export const hotels = {
         "name": "ITC Maratha Mumbai",
         "ratings": 4.3,
         "price_per_night_INR": 10000,
-        "amenities": ["Luxurious Rooms", "Specialty Restaurants", "Spa", "Fitness Center"],
+        "amenities": ["Luxurious Rooms","Indoor Games" ,"Specialty Restaurants", "Spa", "Fitness Center"],
         "location": "Sahar, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/478603428.jpg?k=21aeb0be3cbab94368fa0c47cf297f9784cf0d3af87b608ef929ef2428b2377b&o=&hp=1"
       },
@@ -217,7 +216,7 @@ export const hotels = {
         "name": "Grand Hyatt Mumbai",
         "ratings": 4.5,
         "price_per_night_INR": 13000,
-        "amenities": ["Spacious Rooms", "Multiple Restaurants", "Pool", "Fitness Center"],
+        "amenities": ["Spacious Rooms", "Multiple Restaurants", "Pool", "Fitness Center", "Free WiFi","Free Parking"],
         "location": "Santacruz, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/466996054.jpg?k=de7113f308f41c7e89b80e7ff2f3663e93a2278e8c396b2e90bffe3fc9294900&o=&hp=1"
       },
@@ -226,7 +225,7 @@ export const hotels = {
         "name": "The St. Regis Mumbai",
         "ratings": 4.7,
         "price_per_night_INR": 16000,
-        "amenities": ["Luxury Suites", "Fine Dining", "Rooftop Pool", "Spa"],
+        "amenities": ["Luxury Suites", "Complimentary Breakfast", "Fine Dining", "Rooftop Pool", "Spa"],
         "location": "Lower Parel, Mumbai",
         "image": "https://cache.marriott.com/content/dam/marriott-renditions/BOMXR/bomxr-exterior-1522-hor-feat.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*"
       },
@@ -235,7 +234,7 @@ export const hotels = {
         "name": "Sofitel Mumbai BKC",
         "ratings": 4.4,
         "price_per_night_INR": 11000,
-        "amenities": ["Contemporary Rooms", "French Cuisine", "Pool", "Spa"],
+        "amenities": ["Contemporary Rooms", "French Cuisine", "Pool", "Spa", "Free Parking",  "Free WiFi" ,"theatre"],
         "location": "Bandra Kurla Complex, Mumbai",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/531963158.jpg?k=b5116c555a2ed82053378f13df8835482ea48211f5753c16d1e2cefab39fe194&o=&hp=1"
       },
@@ -253,7 +252,7 @@ export const hotels = {
         "name": "The Leela Mumbai",
         "ratings": 4.6,
         "price_per_night_INR": 14000,
-        "amenities": ["Luxury Accommodations", "Award-Winning Dining", "Spa", "Pool"],
+        "amenities": ["Luxury Accommodations","Indoor Games" ,"Award-Winning Dining", "Spa",  "Complimentary Breakfast","Pool", "Free Parking"],
         "location": "Andheri East, Mumbai",
         "image": "https://promos.makemytrip.com/Hotels_product/Luxe/Hero/The%20Leela%20Mumbai%20201007121229563872.webp"
       }
@@ -292,7 +291,9 @@ export const hotels = {
           "Spa",
           "Fitness Center",
           "Business Center",
-          "Free WiFi"
+          "Free WiFi",
+          "Indoor Games"
+          , "Free Parking"
         ],
         "location": "Janpath, New Delhi",
         "description": "Le Meridien New Delhi offers sophisticated and stylish accommodations with a range of luxurious amenities. Guests can indulge in fine dining experiences, unwind at the rooftop bar, relax by the outdoor pool, rejuvenate at the spa, and stay active at the fitness center. The hotel also features a business center and complimentary WiFi access.",
@@ -304,7 +305,7 @@ export const hotels = {
         "name": "The Leela Palace New Delhi",
         "ratings": 4.9,
         "price_per_night_INR": 25000,
-        "amenities": ["Luxury Suites", "Fine Dining", "Spa", "Outdoor Pool"],
+        "amenities": ["Luxury Suites", "Fine Dining", "Complimentary Breakfast", "Spa", "Outdoor Pool" , "Free WiFi"],
         "location": "Chanakyapuri, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5648061.jpg?k=4629f919fb92436c3e19b71734d208d8e58201df7b29773f90089639f367db6d&o=&hp=1"
       },
@@ -313,7 +314,7 @@ export const hotels = {
         "name": "Taj Palace, New Delhi",
         "ratings": 4.7,
         "price_per_night_INR": 18000,
-        "amenities": ["Grand Rooms", "Multiple Restaurants", "Pool", "Fitness Center"],
+        "amenities": ["Grand Rooms", "Multiple Restaurants", "Complimentary Breakfast" ,"Pool", "Fitness Center"],
         "location": "Sardar Patel Marg, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/336041746.jpg?k=81ca9e45244b4f17cb199c4ac73d2094446ebd17020c5c1425a44a23e860b562&o=&hp=1"
       },
@@ -322,7 +323,7 @@ export const hotels = {
         "name": "ITC Maurya, New Delhi",
         "ratings": 4.5,
         "price_per_night_INR": 15000,
-        "amenities": ["Luxurious Accommodations", "Specialty Dining", "Spa", "Fitness Center"],
+        "amenities": ["Luxurious Accommodations", "Specialty Dining", "Spa", "Fitness Center" , "Free WiFi" ,"theatre"],
         "location": "Diplomatic Enclave, New Delhi",
         "image": "https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcmaurya-new-delhi/images/overview-landing-page/headmast/desktop/exterior-night.png"
       },
@@ -331,7 +332,7 @@ export const hotels = {
         "name": "The Oberoi New Delhi",
         "ratings": 4.8,
         "price_per_night_INR": 22000,
-        "amenities": ["Premium Rooms", "Award-Winning Restaurants", "Spa", "Fitness Center"],
+        "amenities": ["Premium Rooms", "Award-Winning Restaurants", "Spa", "Fitness Center", "Free Parking" , "Free WiFi"],
         "location": "Dr. Zakir Hussain Marg, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44522456.jpg?k=9947bae2627f2fc1ec561c4284d877d0cddcad32a7e4b3716a84a115b29ee8ff&o=&hp=1"
       },
@@ -340,7 +341,7 @@ export const hotels = {
         "name": "Hyatt Regency Delhi",
         "ratings": 4.4,
         "price_per_night_INR": 12000,
-        "amenities": ["Spacious Rooms", "Multiple Dining Options", "Pool", "Fitness Center"],
+        "amenities": ["Spacious Rooms", "Multiple Dining Options", "Pool",  "Complimentary Breakfast","Fitness Center" , "Free WiFi"],
         "location": "Bhikaji Cama Place, New Delhi",
         "image": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/01/23/0953/Hyatt-Regency-Delhi-P312-Facade.jpg/Hyatt-Regency-Delhi-P312-Facade.16x9.jpg"
       },
@@ -349,7 +350,7 @@ export const hotels = {
         "name": "JW Marriott Hotel New Delhi Aerocity",
         "ratings": 4.6,
         "price_per_night_INR": 14000,
-        "amenities": ["Modern Rooms", "Multiple Dining Options", "Pool", "Fitness Center"],
+        "amenities": ["Modern Rooms", "Multiple Dining Options", "Pool","Indoor Games", "Fitness Center"],
         "location": "Aerocity, New Delhi",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr2pMCRVvLFS18G4PaZXDvvoq7_roUqt1oUPqY39Rh2A&s"
       },
@@ -377,7 +378,7 @@ export const hotels = {
         "name": "Lodhi Hotel",
         "ratings": 4.7,
         "price_per_night_INR": 20000,
-        "amenities": ["Luxury Suites", "Fine Dining", "Spa", "Outdoor Pool"],
+        "amenities": ["Luxury Suites", "Fine Dining","Indoor Games", "Spa", "Outdoor Pool" , "Free WiFi" ,"theatre"],
         "location": "Lodhi Road, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269476314.jpg?k=947be45d7c5867eb4513cdb7d78950694ec98a16330308ff513ef95896fd4602&o=&hp=1"
       },
@@ -386,7 +387,7 @@ export const hotels = {
         "name": "The Imperial New Delhi",
         "ratings": 4.8,
         "price_per_night_INR": 25000,
-        "amenities": ["Heritage Suites", "Award-Winning Restaurants", "Spa", "Swimming Pool"],
+        "amenities": ["Heritage Suites", "Award-Winning Restaurants", "Spa",  "Complimentary Breakfast","Swimming Pool"],
         "location": "Connaught Place, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/64759184.jpg?k=07d74a7d896acf9ec2a97ad22b5e98dc7f3fe1a5242bf43ca2488a6606f72ef9&o=&hp=1"
       },
@@ -395,7 +396,7 @@ export const hotels = {
         "name": "Roseate House New Delhi",
         "ratings": 4.4,
         "price_per_night_INR": 12000,
-        "amenities": ["Contemporary Rooms", "Global Cuisine", "Outdoor Pool", "Fitness Center"],
+        "amenities": ["Contemporary Rooms",  "Indoor Games", "Global Cuisine", "Outdoor Pool", "Fitness Center" , "Free WiFi"],
         "location": "Aerocity, New Delhi",
         "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/106566927.jpg?k=1034d8fc55ec43d305e906e21b06ac5c63cfb4e7869c4fb09a11f754101e47b2&o=&hp=1"
       }
