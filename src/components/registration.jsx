@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { apiurl } from "./constants";
+import bcrypt from 'bcryptjs';
+
 
 const Registration = ({ OpenType, setOpenType }) => {
   const validationSchema = Yup.object({
@@ -25,38 +27,40 @@ const Registration = ({ OpenType, setOpenType }) => {
     confirmPassword: "",
   });
 
-  const handleSubmit = async (values, { setSubmitting }) => {
-    try {
-      console.log("Registration form submitted:", values);
-  
-      // Make API request with form values
-      const apiResponse = await axios.post(`${apiurl}/registration`, {
-        username: values.username,
-        phoneNumber: values.phonenumber,
-        emailaddress: values.email,
-        password: values.password,
+
+const handleSubmit = async (values, { setSubmitting }) => {
+  try {
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(values.password, 10); // Salt rounds = 10
+
+    // Make API request with hashed password
+    const apiResponse = await axios.post(`${apiurl}/registration`, {
+      username: values.username,
+      phoneNumber: values.phonenumber,
+      emailaddress: values.email,
+      password: hashedPassword, // Send hashed password to API
+    });
+
+    console.log("API Response:", apiResponse.data);
+
+    if (apiResponse?.data?._id) {
+      // Reset form state and close modal on successful registration
+      setFormState({
+        username: "",
+        phonenumber: "",
+        email: "",
+        password: "",
+        confirmPassword: "", // Assuming you also want to reset confirmPassword
       });
-      console.log("API Response:", apiResponse.data);
-  
-      if (apiResponse?.data?._id) {
-        // Reset form state and close modal on successful registration
-        setFormState({
-          username: "",
-          phonenumber: "",
-          email: "",
-          password: "",
-          confirmPassword: "", // Assuming you also want to reset confirmPassword
-        });
-         // Close modal
-         setOpenType(" ")
-      }
-    } catch (error) {
-      console.error("Registration error:", error);
-    } finally {
-      setSubmitting(false); // Reset submit button state regardless of success or failure
+      // Close modal
+      setOpenType("");
     }
-    
-  };
+  } catch (error) {
+    console.error("Registration error:", error);
+  } finally {
+    setSubmitting(false); // Reset submit button state regardless of success or failure
+  }
+};
   
   return (
     <div>

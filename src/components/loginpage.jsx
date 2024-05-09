@@ -16,31 +16,33 @@ const Loginpage = ({ OpenType, setOpenType }) => {
     password: Yup.string().required("Password is required"),
   });
 
-  const handleSubmit = async (values) => {
-   
-    
-    let Username = values.username
-    let Password = values.password
-   console.log(" Username and Password are required for",`${apiurl}/login/${Username}/${Password}`)
-      try {
-        const apiResponse = await axios.get(
-          `${apiurl}/Login/${Username}/${Password}`
-        );
-        localStorage.setItem('login', apiResponse.data)
-        if (apiResponse.data && apiResponse.data !== "Login Failed") {
-          console.log(apiResponse.data)
-          setOpenType("");
-          return;
-        } else {
-          alert("Login Failed by one step");
-        }
-      } catch (error) {
-        console.error("Login error:", error);
-        alert("Login Failed");
+
+  
+  const handleSubmit = async (values, setOpenType ) => {
+    const { username, password } = values;
+  
+    try {
+      const apiResponse = await axios.get(`${apiurl}/Login/${username}/${password}`);
+  
+      
+      if (apiResponse.data.success) {
+        localStorage.setItem('login', apiResponse.data.username);
+
+
+
+
+      
+        
+      } else {
+        alert("Login Failed: " + apiResponse.data.error);
       }
-
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login Failed");
+    }
+    
   };
-
+  
   return (
     <div>
       <Modal open={OpenType ==="Login"} onClose={() => setOpenType("")}>
