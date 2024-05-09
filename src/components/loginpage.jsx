@@ -24,12 +24,17 @@ const Loginpage = ({ OpenType, setOpenType }) => {
     try {
       const apiResponse = await axios.get(`${apiurl}/Login/${username}/${password}`);
   
-      console.log(apiResponse)
+      console.log(apiResponse.data)
       if (apiResponse.data) {
         localStorage.setItem('login', apiResponse.data.username);
 
-        const usertoken = apiResponse.data.token
-        localStorage.setItem('token', usertoken);
+
+        localStorage.setItem("usertoken",apiResponse.data.token) ;
+
+        
+
+
+
 
        setOpenType(" ")
       

@@ -21,10 +21,17 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   const[Reviewpage, setReviewPage] = useState(false);
 
   const username = localStorage.getItem("login") || "";
+  const usertoken = localStorage.getItem("usertoken");
+
+  console.log(usertoken)
 
   useEffect(() => {
     if (username) {
-      axios.get(`${apiurl}/mybookings/${username}`).then((response) => {
+      axios.get(`${apiurl}/mybookings/${username}`,
+      {headers:{
+        auth:usertoken
+
+        }}).then((response) => {
         if (response.data?.length) {
           console.log(response.data, "response.data");
 
@@ -39,7 +46,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
 
   const handleCancelBooking = (bookingId) => {
     axios
-      .put(`${apiurl}/cancelBooking/${username}/${bookingId}`)
+      .put(`${apiurl}/cancelBooking/${username}/${bookingId}`,)
       .then((response) => {
         if (response.data) {
           console.log(response.data);
@@ -53,10 +60,13 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
 
   const handleCreateOrder = async (price) => {
     try {
-      const response = await axios.post("http://localhost:4000/payment", {
+      const response = await axios.post(`${apiurl}/payment`, {
         amount: price * 100, // Convert price to cents (assuming price is in rupees)
         currency: "INR",
-      });
+      },{
+        headers:{
+        auth:usertoken
+      }});
 
       const { data } = response;
       setOrder(data);
@@ -78,6 +88,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       handler: async (response) => {
         console.log(response);
         // Handle success callback
+        setOrder(null); 
       },
       prefill: {
         name: "Customer Name",
@@ -137,7 +148,12 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                         Online Payment
                       </Button>
                       </TableCell>
-                      
+                      <TableCell align="right">
+<Button color="blue" onClick={()=>setReviewPage(true)} >
+                        Review
+                        
+                      </Button>
+                      </TableCell>
        
                    
                   </TableRow>
@@ -151,10 +167,6 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
             </Button>
           )}
 
-<Button color="blue" onClick={()=>setReviewPage(true)} >
-                        Review
-                        
-                      </Button>
                      {Reviewpage && (
                       <Review setReviewPage={setReviewPage} Reviewpage={Reviewpage}/>
                      )

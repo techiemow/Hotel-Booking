@@ -12,7 +12,7 @@ const Review = ({ setReviewPage }) => { // Corrected destructuring of props
   };
 
  const username = localStorage.getItem('login')|| "";
-
+const usertoken = localStorage.getItem('usertoken')||""
   const validationSchema = Yup.object({
     rating: Yup.number()
       .min(1, 'Rating must be at least 1')
@@ -31,12 +31,17 @@ const Review = ({ setReviewPage }) => { // Corrected destructuring of props
         rating: values.rating,
         review: values.review,
         username 
+      },{
+        headers:{
+          auth:usertoken
+        }
       });
 
       console.log('API Response:', response.data);
 
       // Optionally reset the form after successful submission
       resetForm();
+      setReviewPage(false);
     } catch (error) {
       console.error('Error submitting review:', error);
     }

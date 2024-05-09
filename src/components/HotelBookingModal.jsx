@@ -26,7 +26,7 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
   const urlLocation = location ? location.toLowerCase() : "delhi"||"Delhi";
   let hotelData = hotels[urlLocation] || []; 
 
-
+  
 
   const [BookingDetails , setBookingDetails] = useState({
     selectedInDate: "",
@@ -118,7 +118,7 @@ const calculatePrice = () => {
 
 
   const username = localStorage.getItem("login")||"";
-
+  const usertoken = localStorage.getItem("usertoken");
 
  const handleSubmit = async () => {
     const {selectedTime,selectedRooms, selectedOutDate, selectedInDate,Price } = BookingDetails;
@@ -134,6 +134,7 @@ const calculatePrice = () => {
     )
     {
       try{
+      
       const apires = await axios.post(`${apiurl}/create_booking`,{
         selectedTime,
         selectedRooms,
@@ -145,7 +146,10 @@ const calculatePrice = () => {
 
        
 
-      })
+      },
+      {headers:{
+        auth:usertoken,
+      }})
       if(apires.data?._id){
        console.log(apires.data)
        
