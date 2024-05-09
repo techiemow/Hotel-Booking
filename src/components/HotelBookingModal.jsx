@@ -36,32 +36,33 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
     Price: 0
   
     
-  })
-  const handleINDate = async (value) => {
+  })  
+  const handleINDate = (value) => {
     const day = new Date(value).getDate();
     const year = new Date(value).getFullYear();
     const month = new Date(value).getMonth() + 1;
-
-    const bookingData = `${day}-${month}-${year}`;
-    console.log(bookingData);
+    const bookingData = `${month}-${day}-${year}`;
+  
     setBookingDetails({
       ...BookingDetails,
       selectedInDate: bookingData,
+      Price: calculatePrice(),
     });
-  }
+  };
   
-  const handleOUTDate = async (value) => {
+  const handleOUTDate = (value) => {
     const day = new Date(value).getDate();
     const year = new Date(value).getFullYear();
     const month = new Date(value).getMonth() + 1;
-
-    const bookingData = `${day}-${month}-${year}`;
-   console.log(bookingData);
+    const bookingData = `${month}-${day}-${year}`;
+  
     setBookingDetails({
       ...BookingDetails,
       selectedOutDate: bookingData,
+      Price: calculatePrice(),
     });
-  }
+  };
+  
     
  const handleCheckINTime = async (value) => {
   setBookingDetails({
@@ -71,52 +72,68 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
   });
 
 }
- 
 const handleRooms = (event) => {
   const value = parseInt(event.target.value);
   setCount(value);
+
   setBookingDetails({
     ...BookingDetails,
     selectedRooms: value,
+    Price: value * calculatePrice(), // Update price based on new room count
   });
 };
 
 const decrementCount = () => {
   if (count > 0) {
-    setCount(count - 1); // Decrease count, but not below zero
+    const newCount = count - 1;
+    setCount(newCount);
 
-    // Update BookingDetails with the new count
     setBookingDetails({
       ...BookingDetails,
-      selectedRooms: count - 1,
-      Price: (count - 1) * calculatePrice()
+      selectedRooms: newCount,
+      Price: newCount * calculatePrice(),
     });
   }
 };
 
 const incrementCount = () => {
-  setCount(count + 1); // Increase count
+  const newCount = count + 1;
+  setCount(newCount);
 
-  // Update BookingDetails with the new count
   setBookingDetails({
-   ...BookingDetails,
-    selectedRooms: count + 1,
-    Price: (count + 1) * calculatePrice()
+    ...BookingDetails,
+    selectedRooms: newCount,
+    Price: newCount * calculatePrice(),
   });
 };
 
+
 const calculatePrice = () => {
   const selectedHotelData = hotelData.find((hotel) => hotel.id === HotelId);
-  console.log('Selected Hotel Data:', selectedHotelData);
-  console.log('HotelId:', HotelId);
-  
   if (selectedHotelData) {
     const pricePerNight = parseFloat(selectedHotelData.price_per_night_INR);
-    return pricePerNight;
-  }
-  return 0; // Return 0 if hotel data not found
-};
 
+    // Calculate the number of days between check-in and check-out
+    const checkInDate = BookingDetails.selectedInDate;
+    const checkOutDate = BookingDetails.selectedOutDate;
+    
+    if (checkInDate && checkOutDate) {
+      const checkInDateTime = new Date(checkInDate).getTime();
+
+      
+      const checkOutDateTime = new Date(checkOutDate).getTime();
+
+       console.log(`Checking in ${checkInDateTime/(1000 * 3600 * 24)}`);
+      console.log(`Checking out ${checkOutDateTime}`);
+   
+      const timeDifference = checkOutDateTime - checkInDateTime;
+      const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert ms to days
+      console.log(daysDifference)
+      return daysDifference * pricePerNight;
+    }
+  }
+  return 0; // Return 0 if hotel data not found or dates are not selected
+};
 
   console.log(BookingDetails);
 
