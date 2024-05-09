@@ -1,7 +1,7 @@
 export const apiurl =
   import.meta.env.VITE_LOCAL_URL === "production"
     ? "https://hotel-booking-be.onrender.com"
-    : `http://localhost:4000`;  
+    : "http://localhost:4000";  
 
     export const sortData = [
       { label: "Ratings", key: 1994 },

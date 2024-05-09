@@ -28,6 +28,8 @@ const Registration = ({ OpenType, setOpenType }) => {
   });
 
 
+  console.log(apiurl)
+
 const handleSubmit = async (values, { setSubmitting }) => {
   try {
     // Hash the password
