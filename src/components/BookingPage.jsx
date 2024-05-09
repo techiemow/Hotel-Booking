@@ -1,5 +1,6 @@
 import { Grid, Typography,Breadcrumbs, Autocomplete,
-    TextField } from '@mui/material';
+    TextField, 
+    useMediaQuery} from '@mui/material';
 import React, { useState } from 'react'
 import { useParams } from "react-router-dom";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -43,23 +44,27 @@ const BookingPage = () => {
         </Typography>,
       ];
 
-
+      const isMobile = useMediaQuery('(max-width:600px)'); 
 
   return (
     <Grid
     container
     style={{
       marginTop:"auto",
-      width: 1650
+      width: 1660
     }}
     spacing={12}
-    columnSpacing={1}
+    columnSpacing={1} 
      >
-    <Grid item lg={2.5} md={2} sm={2} >
+      {!isMobile &&
+    <Grid item lg={2} md={2} sm={1.5}  >
         <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
       </Grid>
-
-    <Grid item lg={8.5} md={6} sm={4} >
+}  
+    
+      
+    <Grid item lg={9} md={5} sm={3.5} xs={4}>
+      <Grid >
       <Grid item>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
@@ -80,10 +85,13 @@ const BookingPage = () => {
             </Typography>
           </Grid>
           <Grid item>
+          {!isMobile &&
+          <Grid item>
             <button className='btn btn-primary' onClick={()=>{
               setcompare(true);
             }}>Compare</button>
             <Compare  compare={compare} setcompare={setcompare}/>
+          </Grid>}
           </Grid>
 
           <Grid item>
@@ -106,6 +114,7 @@ const BookingPage = () => {
               </Grid>
             
           </Grid>
+        </Grid>
         </Grid>
         </Grid>
         <Grid item paddingTop={4}>

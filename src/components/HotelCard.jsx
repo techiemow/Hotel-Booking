@@ -90,7 +90,7 @@ const HotelCard = ({ location = '', filteredTags = [], selectedSort = '' }) => {
 
   return (
     <Grid item>
-    <Grid container spacing={2} justifyContent="center" alignItems={"space-evenly"}>
+    <Grid container spacing={2} justifyContent="center" alignItems={"space-evenly"} >
       {hotelData.map((hotel, index) => {
         const { id, name, location, amenities, price_per_night_INR, image, ratings } = hotel;
 

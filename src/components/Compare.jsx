@@ -111,7 +111,7 @@ const Compare = ({ compare, setcompare }) => {
             </div>
           </Grid>
         )}
-
+  
         {hotelDetails2 && (
           <Grid item xs={12} sm={6}>
             <div>
