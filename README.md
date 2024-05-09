@@ -48,8 +48,11 @@
 - List all view all the booking logs on individual components
 
 - Users can easily reserve hotels and manage their bookings directly within the application.
+![](./assests/booking.png)
 
+- Users can easily pay for their stay by clicking mybookings button on the navbar after login.
 ![](./assests/mybookings.png)
+
 
 -------------------------------------------------------------
 

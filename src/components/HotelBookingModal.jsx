@@ -156,7 +156,8 @@ const calculatePrice = () => {
       }})
       if(apires.data?._id){
        console.log(apires.data)
-       
+     
+         setSelectedHotel(false)
         alert(`Booking successfully created`)
       }
     
