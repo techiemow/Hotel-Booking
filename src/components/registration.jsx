@@ -7,6 +7,7 @@ import { apiurl } from "./constants";
 import bcrypt from 'bcryptjs';
 
 
+
 const Registration = ({ OpenType, setOpenType }) => {
   const validationSchema = Yup.object({
     username: Yup.string().required("Username is required"),
@@ -115,6 +116,7 @@ const handleSubmit = async (values, { setSubmitting }) => {
                 <button type="submit" className="btn btn-primary" >
                   Register
                 </button>
+                <button type="submit" className="btn btn-danger mx-4" onClick={()=>setOpenType(" ")} >cancel</button>
               </Form>
             
           </Formik>

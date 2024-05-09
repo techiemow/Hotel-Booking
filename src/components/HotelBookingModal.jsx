@@ -23,7 +23,7 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
 
   const [count,setCount] = useState(0)
   
-  const urlLocation = location ? location.toLowerCase() : "chennai";
+  const urlLocation = location ? location.toLowerCase() : "delhi"||"Delhi";
   let hotelData = hotels[urlLocation] || []; 
 
 
@@ -157,9 +157,11 @@ const calculatePrice = () => {
       console.log(err)
     }
 
-  }else {
+  }else if(!username){
     // Handle case where form is incomplete
-    alert('Please fill out all required fields.');
+    alert('Please Register with your account before creating a new booking and login to create a new booking ');
+  }else{
+    alert('Please fill out all required fields.');  
   }
  
 }
@@ -170,6 +172,14 @@ const calculatePrice = () => {
 
 
   const handleClose = () => {
+    setBookingDetails({
+      selectedInDate: "",
+      selectedTime: "",
+      selectedOutDate: "",
+      selectedRooms: 0,
+      Price: 0
+    })
+    setCount(0)
     setSelectedHotel(false);
   };
 

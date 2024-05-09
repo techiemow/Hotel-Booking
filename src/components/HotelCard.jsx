@@ -15,7 +15,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
   const [selectedHotel,setSelectedHotel] = useState(false)
   const [HotelId , setHotelId] = useState("")
 
-  const urlLocation = location ? location.toLowerCase() : "chennai";
+  const urlLocation = location ? location.toLowerCase() : "Delhi"||"delhi";
   let hotelData = hotels[urlLocation] || []; 
 
   const { SearchHotel } = useContext(Appcontext);
@@ -102,7 +102,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
 
   return (
     <Grid item>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} justifyContent={"space-evenly"} alignItems={"center"}>
       {hotelData.map((hotel, index) => {
         const { id, name, location, amenities, price_per_night_INR, image, ratings } = hotel;
 
@@ -112,7 +112,7 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
         
           key={index} xs={12} sm={6} md={4}>
           
-             <Card sx={{ maxWidth: 345 }} height={100}>
+             <Card sx={{ maxWidth: 345, maxHeight:650}} >
                 <div style={{ position: "relative" }}>
                   <CardMedia
                     sx={{ height: 275 }}
@@ -153,8 +153,8 @@ const HotelCard = ({ location = "", filteredTags = [], selectedSort = "" }) => {
               
               </CardContent>
               <CardActions>
-                <Button size="small">share </Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small" target='_blank'>Book now</Button>
+            
               </CardActions>
             </Card>
           </Grid>

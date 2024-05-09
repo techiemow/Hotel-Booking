@@ -18,19 +18,20 @@ const Loginpage = ({ OpenType, setOpenType }) => {
 
 
   
-  const handleSubmit = async (values, setOpenType ) => {
+  const handleSubmit = async (values) => {
     const { username, password } = values;
   
     try {
       const apiResponse = await axios.get(`${apiurl}/Login/${username}/${password}`);
   
-      
-      if (apiResponse.data.success) {
+      console.log(apiResponse)
+      if (apiResponse.data) {
         localStorage.setItem('login', apiResponse.data.username);
 
+        const usertoken = apiResponse.data.token
+        localStorage.setItem('token', usertoken);
 
-
-
+       setOpenType(" ")
       
         
       } else {
@@ -86,6 +87,7 @@ const Loginpage = ({ OpenType, setOpenType }) => {
                 <ErrorMessage name="password" component="div" className="error text-danger" />
               </div>
               <button type="submit" className="btn btn-primary" >Login</button>
+              <button type="submit" className="btn btn-danger mx-4" onClick={()=>setOpenType(" ")} >cancel</button>
             </Form>
           </Formik>
         </ModalDialog>
