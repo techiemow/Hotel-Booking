@@ -59,6 +59,12 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   };
 
   const handleCreateOrder = async (price) => {
+    if (price > 50000) {
+      alert("Single transaction above ₹50,000 is not allowed.");
+      return;
+    }
+
+
     try {
       const response = await axios.post(`${apiurl}/payment`, {
         amount: price * 100, // Convert price to cents (assuming price is in rupees)
@@ -162,7 +168,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
             </Table>
           </TableContainer>
           {order && (
-            <Button onClick={handlePayment}>
+             <Button onClick={handlePayment}>
               Pay ₹{order.amount / 100}
             </Button>
           )}
