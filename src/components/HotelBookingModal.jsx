@@ -55,7 +55,13 @@ const HotelBookingModal = ({location, selectedHotel, setSelectedHotel , HotelId 
     const year = new Date(value).getFullYear();
     const month = new Date(value).getMonth() + 1;
     const bookingData = `${month}-${day}-${year}`;
-  
+    
+    if(bookingData === BookingDetails.selectedInDate){
+      alert("Check-Out Date should be atleast one more than Check-In Date")
+      
+    }
+    
+
     setBookingDetails({
       ...BookingDetails,
       selectedOutDate: bookingData,

@@ -60,6 +60,10 @@
 
 ![](./assests/payment.png)
 
+
+- Here I used Razorpay Testmode integration so maximum single transaction amount is 50000 INR and If I try to pay more than 50000 then it shows like this
+![](./assests/payment%20transaction.png) 
+
 ----------------------------------------------------------------
 
 - Users can leave reviews and ratings for hotels they have stayed at, helping others make informed decisions when booking.
