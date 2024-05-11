@@ -18,26 +18,18 @@ import Review from "./Review";
 const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   const [bookingresponse, setBookingResponse] = useState([]);
   const [order, setOrder] = useState(null);
-  const[Reviewpage, setReviewPage] = useState(false);
+  const [Reviewpage, setReviewPage] = useState(false);
 
   const username = localStorage.getItem("login") || "";
   const usertoken = localStorage.getItem("usertoken");
 
-  console.log(usertoken)
-
   useEffect(() => {
     if (username) {
-      axios.get(`${apiurl}/mybookings/${username}`,
-      {headers:{
-        auth:usertoken
-
-        }}).then((response) => {
+      axios.get(`${apiurl}/mybookings/${username}`, {
+        headers: { auth: usertoken }
+      }).then((response) => {
         if (response.data?.length) {
-          console.log(response.data, "response.data");
-
-          const totalBookings = response?.data?.filter(
-            (ele) => ele.isCancelled === false
-          );
+          const totalBookings = response.data.filter((ele) => ele.isCancelled === false);
           setBookingResponse(totalBookings);
         }
       });
@@ -45,35 +37,24 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   }, [username]);
 
   const handleCancelBooking = (bookingId) => {
-    axios
-      .put(`${apiurl}/cancelBooking/${username}/${bookingId}`,)
+    axios.put(`${apiurl}/cancelBooking/${username}/${bookingId}`)
       .then((response) => {
-        if (response.data) {
-          console.log(response.data);
-          if (response.data === "Cancelled Success") {
-            alert("Cancelled Success");
-            setShowMyBookingModal(false);
-          }
+        if (response.data === "Cancelled Success") {
+          alert("Cancelled Success");
+          setShowMyBookingModal(false);
         }
       });
   };
 
-  const handleCreateOrder = async (price) => {
-    if (price > 50000) {
-      alert("Single transaction above ₹50,000 is not allowed.");
-      return;
-    }
-
-
+  const handleCreateOrder = async (price, bookingId) => {
     try {
-      const response = await axios.post(`${apiurl}/payment`, {
-        amount: price * 100, // Convert price to cents (assuming price is in rupees)
+      const response = await axios.post(`${apiurl}/payment/${bookingId}`, {
+        amount: price * 100,
         currency: "INR",
-      },{
-        headers:{
-        auth:usertoken
-      }});
-
+      }, {
+        headers: { auth: usertoken }
+      });
+      
       const { data } = response;
       setOrder(data);
     } catch (error) {
@@ -92,9 +73,8 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       description: "Payment for Your Hotel-Booking",
       order_id: order.id,
       handler: async (response) => {
-        console.log(response);
-        // Handle success callback
-        setOrder(null); 
+        console.log(response.data);
+        setOrder(null); // Handle success callback
       },
       prefill: {
         name: "Customer Name",
@@ -148,37 +128,37 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                       <Button color="danger" onClick={() => handleCancelBooking(row._id)}>
                         Cancel
                       </Button>
-                      </TableCell>
-                      <TableCell align="right">
-                      <Button color="success" onClick={() => handleCreateOrder(row.Price)}>
-                        Online Payment
-                      </Button>
-                      </TableCell>
-                      <TableCell align="right">
-<Button color="blue" onClick={()=>setReviewPage(true)} >
+                    </TableCell>
+                    <TableCell align="right">
+                      {!row.payment && ( // Render only if payment is false
+                        <Button color="success" onClick={() => handleCreateOrder(row.Price, row._id)}>
+                          Online Payment
+                        </Button>
+                      )}
+                      {row.payment && ( // Render only if payment is true
+                       <Typography textAlign={"center"} variant="h2">
+                        Payment Completed
+                       </Typography>
+                      )}
+                    </TableCell>
+                    <TableCell align="right">
+                      <Button color="blue" onClick={() => setReviewPage(true)}>
                         Review
-                        
                       </Button>
-                      </TableCell>
-       
-                   
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
           {order && (
-             <Button onClick={handlePayment}>
+            <Button onClick={handlePayment}>
               Pay ₹{order.amount / 100}
             </Button>
           )}
-
-                     {Reviewpage && (
-                      <Review setReviewPage={setReviewPage} Reviewpage={Reviewpage}/>
-                     )
-                     }
-            
-         
+          {Reviewpage && (
+            <Review setReviewPage={setReviewPage} Reviewpage={Reviewpage} />
+          )}
         </ModalDialog>
       </Modal>
     </>
