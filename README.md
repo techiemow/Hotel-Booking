@@ -51,7 +51,9 @@
 ![](./assests/booking.png)
 
 - Users can easily pay for their stay by clicking mybookings button on the navbar after login.
-![](./assests/mybookings.png)
+![](./assests/mybookings.png).
+
+
 
 
 -------------------------------------------------------------
@@ -62,7 +64,11 @@
 
 
 - Here I used Razorpay Testmode integration so maximum single transaction amount is 50000 INR and If I try to pay more than 50000 then it shows like this
-![](./assests/payment%20transaction.png) 
+![](./assests/payment%20transaction.png)    
+
+
+- Users can see their payment completed or not by closing the myBookings modal and reopening the myBookingsmodal.
+![](./assests/bookings.png)
 
 ----------------------------------------------------------------
 
