@@ -47,6 +47,10 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   };
 
   const handleCreateOrder = async (price, bookingId) => {
+    if(price > 50000){
+      alert("Single transaction maximum price is 50000 INR");
+      return;
+    }
     try {
       const response = await axios.post(`${apiurl}/payment/${bookingId}`, {
         amount: price * 100,

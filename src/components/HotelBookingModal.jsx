@@ -179,7 +179,17 @@ const calculatePrice = () => {
       }})
       if(apires.data?._id){
        console.log(apires.data)
-     
+
+
+
+       setBookingDetails({
+        selectedInDate: "",
+        selectedTime: "",
+        selectedOutDate: "",
+        selectedRooms: 0,
+        Price: 0
+      })
+         setCount(0)
          setSelectedHotel(false)
         alert(`Booking successfully created`)
       }
