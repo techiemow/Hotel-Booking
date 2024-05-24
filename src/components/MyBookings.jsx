@@ -93,8 +93,14 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       },
     };
 
+  
+
     const razorpayInstance = new window.Razorpay(options);
     razorpayInstance.open();
+
+
+
+    setShowMyBookingModal(false)
   };
 
   return (
@@ -115,6 +121,8 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                   <TableCell align="right">Check-IN Date</TableCell>
                   <TableCell align="right">Check-Out Date</TableCell>
                   <TableCell align="right">Price (INR)</TableCell>
+                  <TableCell align="right">Cancellation</TableCell>
+                  <TableCell align="right">Payment </TableCell>
                   <TableCell align="right">Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -134,15 +142,14 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                       </Button>
                     </TableCell>
                     <TableCell align="right">
-                      {!row.payment && ( // Render only if payment is false
+                    {!row.payment ? (
                         <Button color="success" onClick={() => handleCreateOrder(row.Price, row._id)}>
                           Online Payment
                         </Button>
-                      )}
-                      {row.payment && ( // Render only if payment is true
-                       <Typography textAlign={"center"} variant="h2">
-                        Payment Completed
-                       </Typography>
+                      ) : (
+                        <Typography textAlign={"center"} variant="h2">
+                          Payment Completed
+                        </Typography>
                       )}
                     </TableCell>
                     <TableCell align="right">
