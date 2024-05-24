@@ -51,7 +51,7 @@ const BookingPage = () => {
     container
     style={{
       marginTop:"auto",
-      width: 1660
+      width: 1480
     }}
     spacing={12}
     columnSpacing={1} 
