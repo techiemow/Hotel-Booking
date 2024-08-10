@@ -41,7 +41,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   }, [username]);
 
   const handleCancelBooking = (bookingId) => {
-    axios.put(`${apiurl}/cancelBooking/${username}/${bookingId}`)
+    axios.delete(`${apiurl}/cancelBooking/${username}/${bookingId}`)
       .then((response) => {
         if (response.data === "Cancelled Success") {
           alert("Cancelled Success");
@@ -81,7 +81,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       handler: async (response) => {
         console.log(response);
         const orderId = response.razorpay_order_id;
-        await axios.post(`${apiurl}/payment/verify/${orderId}`, {
+        await axios.put(`${apiurl}/payment/verify/${orderId}`, {
           paymentId: response.razorpay_payment_id,
           orderId: response.razorpay_order_id,
           signature: response.razorpay_signature,
