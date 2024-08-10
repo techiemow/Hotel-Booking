@@ -23,7 +23,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
   const username = localStorage.getItem("login") || "";
   const usertoken = localStorage.getItem("usertoken");
 
-  useEffect(() => {
+   const fetchBookings = () =>{
     if (username) {
       axios.get(`${apiurl}/mybookings/${username}`, {
         headers: { auth: usertoken }
@@ -34,6 +34,10 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
         }
       });
     }
+  }
+
+  useEffect(() => {
+    fetchBookings();
   }, [username]);
 
   const handleCancelBooking = (bookingId) => {
@@ -77,8 +81,21 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       description: "Payment for Your Hotel-Booking",
       order_id: order.id,
       handler: async (response) => {
-        console.log(response.data);
-        setOrder(null); // Handle success callback
+        console.log(response);
+        const orderId = response.razorpay_order_id;
+        await axios.post(`${apiurl}/payment/verify/${orderId}`, {
+          paymentId: response.razorpay_payment_id,
+          orderId: response.razorpay_order_id,
+          signature: response.razorpay_signature,
+          bookingId,
+        },{
+          headers:{
+            auth:usertoken
+          }
+        });
+        alert('Payment Completed');
+        setOrder(null);
+        fetchBookings();
       },
       prefill: {
         name: "Customer Name",
@@ -157,7 +174,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
                         Review
                       </Button>
                     </TableCell>
-                  </TableRow>
+                  </TableRow> 
                 ))}
               </TableBody>
             </Table>

@@ -96,19 +96,23 @@ const Navbar = () => {
 
             ) : (
               <>
-              <Button  className='Item m-2 mx-5' variant="contained" color="primary"
-              onClick={
-                 handleMyBookings
-              }>
-              MyBookings
-              </Button>
+                   <Button
+                  className="Item m-2 mx-5"
+                  variant="outlined"
+                  size="medium"
+                  onClick={handleMyBookings}
+                >
+                  My Booking
+                </Button>
 
-                    <Button  className='Item m-2 mx-5' variant="contained" color="primary"
-                    onClick={()=>{
-                      handleLogout();
-                    }}>
-                    Logout
-                    </Button>
+                <Button
+                  className="Item m-2 mx-5"
+                  variant="outlined"
+                  size="medium"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
 
                     </>
 
