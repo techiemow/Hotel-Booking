@@ -62,9 +62,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
       }, {
         headers: { auth: usertoken }
       });
-      
-      const { data } = response;
-      setOrder(data);
+      setOrder({ ...response.data, bookingId });
     } catch (error) {
       console.error("Error creating order:", error);
     }
@@ -72,7 +70,7 @@ const MyBookings = ({ ShowMyBookingModal, setShowMyBookingModal }) => {
 
   const handlePayment = async () => {
     if (!order) return;
-
+    const { bookingId } = order;
     const options = {
       key: "rzp_test_DClMygpDU9TijX",
       amount: order.amount,
